@@ -184,19 +184,19 @@ return [
       |  Templates Index Page
       |--------------------------------------
      */
-    'templates'                                => 'Templates',
-    'template_set'                             => 'Template sets',
-    'create_template'                          => 'Create template',
-    'edit_template'                            => 'Edit template',
-    'list_of_templates_sets'                   => 'List of templates set',
-    'create_set'                               => 'Create set',
-    'template_name'                            => 'Template name',
-    'template_saved_successfully'              => 'Template saved successfully',
-    'template_updated_successfully'            => 'Template updated successfully',
-    'in_use'                                   => 'In Use',
-    'you_have_created_a_new_template_set'      => 'You have created a new template set',
-    'you_have_successfully_activated_this_set' => 'You have successfully activated this set',
-    'template_set_deleted_successfully'        => 'Template set deleted successfully',
+    'templates'                                => 'قوالب',
+    'template_set'                             => 'مجموعات القوالب',
+    'create_template'                          => 'إنشاء القالب',
+    'edit_template'                            => 'تحرير القالب',
+    'list_of_templates_sets'                   => 'قائمة مجموعات القوالب',
+    'create_set'                               => 'إنشاء مجموعة',
+    'template_name'                            => 'إسم القالب',
+    'template_saved_successfully'              => 'تم حفظ القالب بنجاح',
+    'template_updated_successfully'            => 'تم تحديث القالب بنجاح',
+    'in_use'                                   => 'قيد الإستعمال',
+    'you_have_created_a_new_template_set'      => 'لقد قمت بإنشاء مجموعة قوالب جديدة',
+    'you_have_successfully_activated_this_set' => 'لقد قمت بتنشيط هذه المجموعة بنجاح',
+    'template_set_deleted_successfully'        => 'تم حذف مجموعة القوالب بنجاح',
     //Template Description
     'Create ticket agent'       => 'Notification email that is sent to agent and admin when ticket is created',
     'Assign ticket'             => 'Ticket assigned to an agent',
@@ -215,21 +215,21 @@ return [
       |  Templates Create Page
       |--------------------------------------
      */
-    'template_set_to_clone' => 'Template set to clone',
+    'template_set_to_clone' => 'تعيين قالب لاستنساخ',
     'language'              => 'اللغة',
     /*
       |--------------------------------------
       |  Diagnostics Page
       |--------------------------------------
      */
-    'diagnostics'                => 'Diagnostics',
+    'diagnostics'                => 'التشخيص',
     'from'                       => 'من',
     'to'                         => 'إلى',
     'subject'                    => 'موضوع',
     'message'                    => 'رسالة',
     'send'                       => 'إرسال',
     'choose_an_email'            => 'إختر بريد إلكتروني',
-    'email_diagnostic'           => 'Email diagnostic',
+    'email_diagnostic'           => 'تشخيص البريد الإلكتروني',
     'send-mail-to-diagnos'       => 'أرسل رسالة لفحص تعريفات الإيميلات الخارجة',
     'message_has_been_sent'      => 'تم إرسال الرسالة',
     'message_sent_from_php_mail' => 'تم إرسال الرسالة من  PHP-Mail',
@@ -250,7 +250,7 @@ return [
       |   Company Settings Page
       |--------------------------------------
      */
-    'country-code'                 => 'Code',
+    'country-code'                 => 'رمز',
     'company'                      => 'المجلس المحلي',
     'company_settings'             => 'تعريفات المجلس المحلي',
     'website'                      => 'الموقع',
@@ -275,16 +275,16 @@ return [
       |--------------------------------------
      */
     'system'                                                     => 'النظام',
-    'online'                                                     => 'Online',
-    'offline'                                                    => 'Offline',
+    'online'                                                     => ' متصل',
+    'offline'                                                    => 'غير متصل',
     'name/title'                                                 => 'الإسم/العنوان',
     'pagesize'                                                   => 'حجم الصفحة',
-    'url'                                                        => 'URL',
-    'default_department'                                         => 'Default department',
-    'loglevel'                                                   => 'Log level',
-    'purglog'                                                    => 'Purge logs',
-    'nameformat'                                                 => 'Name formatting',
-    'timeformat'                                                 => 'Time format',
+    'url'                                                        => 'مسار',
+    'default_department'                                         => 'القسم الافتراضي',
+    'loglevel'                                                   => 'مستوى تدوين الحوادث',
+    'purglog'                                                    => 'تطهير سجلات',
+    'nameformat'                                                 => 'تنسيق الاسم',
+    'timeformat'                                                 => 'تنسيق الوقت',
     'date'                                                       => 'التأريخ',
     'dateformat'                                                 => 'صيغة التأريخ',
     'date_time'                                                  => 'صيغة التأريخ والوقت',
@@ -319,14 +319,14 @@ return [
       |   Email Settings Page
       |--------------------------------------
      */
-    'email'                               => 'Email',
-    'email-settings'                      => 'Email settings',
-    'default_template'                    => 'Default template set:',
-    'default_system_email'                => 'Default system email:',
-    'default_alert_email'                 => 'Default alert email:',
-    'admin_email'                         => 'Admins email address:',
-    'email_fetch'                         => 'Email fetching:',
-    'enable'                              => 'Enable',
+    'email'                               => 'البريد الإلكتروني',
+    'email-settings'                      => 'إعدادات البريد الإلكتروني',
+    'default_template'                    => 'مجموعة القوالب الافتراضية:',
+    'default_system_email'                => 'البريد الإلكتروني الافتراضي:',
+    'default_alert_email'                 => 'تنبيه البريد الإلكتروني الافتراضي:',
+    'admin_email'                         => 'بريد المشرف الإلكتروني:',
+    'email_fetch'                         => 'جلب البريد الإلكتروني:',
+    'enable'                              => 'تفعيل',
     'default_MTA'                         => 'Default MTA',
     'fetch_auto-corn'                     => 'Fetch on auto-cron',
     'strip_quoted_reply'                  => 'Strip quoted reply',
@@ -454,36 +454,36 @@ return [
       | Ratings Settings
       |-----------------------------------------------
      */
-    'current_ratings' => 'Current ratings',
-    'edit_ratings'    => 'Edit ratings',
+    'current_ratings' => 'التصنيفات الحالية',
+    'edit_ratings'    => 'تحرير التصنيفات',
 
     /*
       |-------------------------------------------------
       |Social login
       |--------------------------------------------------
     */
-      'social-login' => 'Social login',
+      'social-login' => 'تسجيل دخول عن طريق الشبكات الإجتماعية',
 
     /*
       |------------------------------------------------
       | Language page
       |------------------------------------------------
      */
-    'default'            => 'default',
-    'language-settings'  => 'Language settings',
-    'iso-code'           => 'ISO-CODE',
-    'download'           => 'Download',
-    'upload_file'        => 'Upload file',
-    'enter_iso-code'     => 'Enter ISO code',
-    'eg.'                => 'Example',
+    'default'            => 'إفتراضي',
+    'language-settings'  => 'إعدادات اللغة',
+    'iso-code'           => 'رمز الإيزو',
+    'download'           => 'تنزيل',
+    'upload_file'        => 'رفع ملف',
+    'enter_iso-code'     => 'أدخل رزم الإيزو',
+    'eg.'                => 'مثال',
     'for'                => 'for',
-    'english'            => 'English',
-    'language-name'      => 'Language name',
-    'file'               => 'File',
-    'read-more'          => 'Read more.',
-    'enable_lang'        => 'Enable it.',
-    'add-lang-package'   => 'Add new language package',
-    'package_exist'      => 'Package already exists.',
+    'english'            => 'الإنجليزية',
+    'language-name'      => 'اسم اللغة',
+    'file'               => 'ملف',
+    'read-more'          => 'قراءة المزيد.',
+    'enable_lang'        => 'فعلها.',
+    'add-lang-package'   => 'إضافة حزمة لغة جديدة',
+    'package_exist'      => 'الحزمة موجودة بالفعل.',
     'iso-code-error'     => 'Error in ISO code. enter correct ISO code.',
     'zipp-error'         => 'Error in zip file. Zip must contian language PHP files only.',
     'upload-success'     => 'Uploaded successfully.',
@@ -499,18 +499,18 @@ return [
       | Plugin Settings
       |--------------------------------------
      */
-    'add_plugin'            => 'Add plugin',
-    'plugins'               => 'Plugins',
-    'upload'                => 'Upload',
-    'plugins-list'          => 'List of plugins',
-    'plugin-exists'         => 'Plugin already exists',
-    'plugin-installed'      => 'Plugin installed successfully.',
+    'add_plugin'            => 'إضافة إضافة',
+    'plugins'               => 'إضافات',
+    'upload'                => 'رفع',
+    'plugins-list'          => 'قائمة الإضافات',
+    'plugin-exists'         => 'الإضافة موجودة من قبل',
+    'plugin-installed'      => 'تم تثبيت الإضافة بنجاح.',
     'plugin-path-missing'   => 'Plugin file path is not exist',
-    'no-plugin-file'        => 'Their is no ',
+    'no-plugin-file'        => 'لا يوجد ',
     'plugin-config-missing' => 'Their is no <b>config.php or ServiceProvider.php</b>',
     'plugin-info'           => 'Are you a coder? We encourage you to write your own plugins and make\'em available for the community.',
-    'plugin-info-pro'       => ' to checkout the plugins available with Pro edition.',
-    'click-here'            => 'Click here',
+    'plugin-info-pro'       => ' للتحقق من الإضافات المتاحة مع إصدار Pro.',
+    'click-here'            => 'أنقر هنا',
     /*
       |----------------------------------------------------------------------------------------
       | Manage Pages [English(en)]
@@ -521,37 +521,37 @@ return [
       | customize your views to better match your application.
       |
      */
-    'manage' => 'Manage',
+    'manage' => 'إدارة',
     /*
       |--------------------------------------
       |  Help Topic index Page
       |--------------------------------------
      */
-    'help_topics'       => 'Help topics',
-    'topic'             => 'Topic',
-    'type'              => 'Type',
-    'priority'          => 'Priority',
-    'last_updated'      => 'Last updated',
-    'create_help_topic' => 'Create help topic',
-    'action'            => 'Action',
+    'help_topics'       => 'مواضيع المساعدة',
+    'topic'             => 'موضوع',
+    'type'              => 'نوع',
+    'priority'          => 'أولوية',
+    'last_updated'      => 'آخر تحديث',
+    'create_help_topic' => 'إنشاء موضوع المساعدة',
+    'action'            => 'إجراء',
     /*
       |--------------------------------------
       |  Help Topic Create Page
       |--------------------------------------
      */
-    'active'                                => 'Active',
-    'disabled'                              => 'Disabled',
-    'public'                                => 'Public',
-    'private'                               => 'Private',
-    'parent_topic'                          => 'Parent topic',
-    'Custom_form'                           => 'Custom form',
-    'SLA_plan'                              => 'SLA plan',
-    'sla-plans'                             => 'SLA plans',
-    'auto_assign'                           => 'Auto assign',
-    'auto_respons'                          => 'Auto response',
+    'active'                                => 'فعال',
+    'disabled'                              => 'معطل',
+    'public'                                => 'علني',
+    'private'                               => 'خاص',
+    'parent_topic'                          => 'الموضوع الرئيسي',
+    'Custom_form'                           => 'نموذج مخصص',
+    'SLA_plan'                              => 'اتفاقية مستوى الخدمة',
+    'sla-plans'                             => 'اتفاقيات مستوى الخدمة',
+    'auto_assign'                           => 'تكليف تلقائي',
+    'auto_respons'                          => 'استجابة تلقائية',
     'ticket_number_format'                  => 'Ticket number format',
     'system_default'                        => 'System default',
-    'custom'                                => 'Custom',
+    'custom'                                => 'مخصص',
     'internal_notes'                        => 'Internal notes',
     'select_a_parent_topic'                 => 'Select a parent topic',
     'custom_form'                           => 'Custom form',
@@ -561,7 +561,7 @@ return [
     'select_a_priority'                     => 'Select a priority',
     'priorities'                            => 'Priorities',
     'select_a_sla_plan'                     => 'Select a SLA plan',
-    'sla_plans'                             => 'SLA plans',
+    'sla_plans'                             => 'اتفاقيات مستوى الخدمة',
     'select_an_agent'                       => 'Select an agent',
     'helptopic_created_successfully'        => 'Help topic created successfully',
     'helptopic_can_not_create'              => 'Help topic can not be created',
@@ -576,22 +576,22 @@ return [
       |  SLA plan Index Page
       |--------------------------------------
      */
-    'sla_plans'    => 'SLA plans',
-    'create_SLA'   => 'Create a SLA',
-    'grace_period' => 'Grace period',
-    'added_date'   => 'Added date',
+    'sla_plans'    => 'اتفاقيات مستوى الخدمة',
+    'create_SLA'   => 'إنشاء أتفاقية مستوى الخدمة',
+    'grace_period' => 'فترة السماح',
+    'added_date'   => 'تأريخ الإضافة',
     /*
       |--------------------------------------
       |  SLA plan Create Page
       |--------------------------------------
      */
-    'transient'                                            => 'Transient',
+    'transient'                                            => 'عابر',
     'ticket_overdue_alert'                                 => 'Ticket overdue alerts',
-    'sla_plan_created_successfully'                        => 'SLA plan created successfully',
-    'sla_plan_can_not_create'                              => 'SLA plan can not be created',
-    'sla_plan_updated_successfully'                        => 'SLA plan updated successfully',
-    'sla_plan_can_not_update'                              => 'SLA plan can not be updated',
-    'you_cannot_delete_default_department'                 => 'You cannot delete default department',
+    'sla_plan_created_successfully'                        => 'تم إنشاء إتفاقية مستوى الخدمة بنجاح',
+    'sla_plan_can_not_create'                              => 'لم يتم إنشاء إتفاقية مستوى الخدمة',
+    'sla_plan_updated_successfully'                        => 'تم تعديل إتفاقية مستوى الخدمة بنجاح',
+    'sla_plan_can_not_update'                              => 'لا يمكن تعديل إتفاقية مستوى الخدمة',
+    'you_cannot_delete_default_department'                 => 'لا يمكن حذف القسم الإفتراضي',
     'have_been_moved_to_default_sla'                       => 'have been moved to the default SLA',
     'associated_department_have_been_moved_to_default_sla' => 'Associated department have been moved to default SLA',
     'associated_help_topic_have_been_moved_to_default_sla' => 'Associated help topic have been moved to default SLA',
@@ -603,21 +603,21 @@ return [
       |  Work Flow
       |--------------------------------------
      */
-    'workflow'                      => 'Workflow',
+    'workflow'                      => 'سير العمل',
     'ticket_workflow'               => 'Ticket workflow',
-    'create_workflow'               => 'Create workflow',
-    'edit_workflow'                 => 'Edit workflow',
-    'updated'                       => 'Updated',
-    'target'                        => 'Target',
+    'create_workflow'               => 'إنشاء سير عمل',
+    'edit_workflow'                 => 'تحرير سير عمل',
+    'updated'                       => 'تم التحديث',
+    'target'                        => 'هدف',
     'target_channel'                => 'Target channel',
-    'execution_order'               => 'Execution order',
+    'execution_order'               => 'ترتيب التنفيذ',
     'target_channel'                => 'Target channel',
-    'workflow_rules'                => 'Workflow rules',
+    'workflow_rules'                => 'قوانين سير العمل',
     'workflow_action'               => 'Workflow action',
-    'rules'                         => 'Rules',
-    'order'                         => 'Order',
-    'condition'                     => 'Condition',
-    'statement'                     => 'Statement',
+    'rules'                         => 'قواعد',
+    'order'                         => 'ترتيب',
+    'condition'                     => 'شرط',
+    'statement'                     => 'بيان',
     'select_a_channel'              => 'Select a channel',
     'body'                          => 'Body',
     'select_one'                    => 'Select one',
@@ -645,57 +645,57 @@ return [
       |  Form Create Page
       |--------------------------------------
      */
-    'title'                                 => 'Title',
-    'instruction'                           => 'Instruction',
-    'label'                                 => 'Label',
-    'visibility'                            => 'Visibility',
-    'variable'                              => 'Variable',
-    'create_form'                           => 'Create form',
-    'forms'                                 => 'Forms',
-    'form_name'                             => 'Form name',
-    'view_this_form'                        => 'View this form',
-    'delete_from'                           => 'Delete form',
-    'are_you_sure_you_want_to_delete'       => 'Are you sure you want to delete',
-    'close'                                 => 'Close',
-    'instructions'                          => 'Instructions',
+    'title'                                 => 'العنوان',
+    'instruction'                           => 'تعليمات',
+    'label'                                 => 'رقعة تعريف',
+    'visibility'                            => 'رئية',
+    'variable'                              => 'متغير',
+    'create_form'                           => 'إنشاء نموذج',
+    'forms'                                 => 'نماذج',
+    'form_name'                             => 'إسم النموذج',
+    'view_this_form'                        => 'عرض هذا النموذج',
+    'delete_from'                           => 'حذف النموذج',
+    'are_you_sure_you_want_to_delete'       => 'هل أنت متأكد أنك تريد حذف',
+    'close'                                 => 'إغلاق',
+    'instructions'                          => 'تعليمات',
     'instructions_on_creating_form'         => "Select field type you want to add to the form below and click on 'Type' dropdown. Don't forget to set field options if type is select, checkbox or radio. Separate each option by a comma. After you finish creating the form, you can save the form by clicking 'save form' button",
-    'form_properties'                       => 'Form properties',
-    'adding_fields'                         => 'Adding fields',
-    'click_add_fields_button_to_add_fields' => "Click <b>'Add fields'</b> button to add fields",
-    'add_fields'                            => 'Add fields',
-    'save_form'                             => 'Save form',
-    'label'                                 => 'Label',
-    'name'                                  => 'Name',
-    'type'                                  => 'Type',
-    'values(selected_fields)'               => 'Values (Selected fields)',
-    'required'                              => 'Required',
-    'Action'                                => 'Action',
-    'remove'                                => 'Remove',
-    'form_deleted_successfully'             => 'Form deleted successfully',
-    'successfully_created_form'             => 'Successfully created form',
-    'please_fill_form_name'                 => 'Please fill form name',
-    'category_inserted_successfully'        => 'Category inserted successfully',
-    'category_not_inserted'                 => 'Category not inserted',
-    'category_updated_successfully'         => 'Category updated successfully',
-    'category_not_updated'                  => 'Category not updated',
-    'category_deleted_successfully'         => 'Category deleted successfully',
-    'category_not_deleted'                  => 'Category not deleted',
-    'article_inserted_successfully'         => 'Article inserted successfully',
-    'article_not_inserted'                  => 'Article not inserted',
-    'article_updated_successfully'          => 'Article updated successfully',
-    'article_not_updated'                   => 'Article not updated',
-    'article_deleted_successfully'          => 'Article deleted successfully',
-    'article_not_deleted'                   => 'Article not deleted',
-    'article_can_not_deleted'               => 'Article can not be deleted',
-    'page_created_successfully'             => 'Page created successfully',
-    'your_page_updated_successfully'        => 'Your page updated successfully',
-    'page_deleted_successfully'             => 'Page deleted successfully',
-    'settings_updated_successfully'         => 'Settings updated successfully',
-    'settings_can_not_updated'              => 'Settings can not be updated',
+    'form_properties'                       => 'خصائص النموذج',
+    'adding_fields'                         => 'إضافة الحقول',
+    'click_add_fields_button_to_add_fields' => "أنقر زر <b>'إضافة حقول'</b> لإضافة الحقول",
+    'add_fields'                            => 'إضافة حقول',
+    'save_form'                             => 'حفظ النموذج',
+    'label'                                 => 'رقعة التعريف',
+    'name'                                  => 'الإسم',
+    'type'                                  => 'نوع',
+    'values(selected_fields)'               => 'القيم (الحقول المحددة)',
+    'required'                              => 'مطلوب',
+    'Action'                                => 'إجراء',
+    'remove'                                => 'حذف',
+    'form_deleted_successfully'             => 'تم حذف النموذج بنجاح',
+    'successfully_created_form'             => 'تم إنشاء النموذج بنجاح',
+    'please_fill_form_name'                 => 'يرجى ملء اسم النموذج',
+    'category_inserted_successfully'        => 'تم إدراج الفئة بنجاح',
+    'category_not_inserted'                 => 'لم يتم إدراج الفئة',
+    'category_updated_successfully'         => 'تم تحديث الفئة بنجاح',
+    'category_not_updated'                  => 'لم يتم تحديث الفئة',
+    'category_deleted_successfully'         => 'تم حذف الفئة بنجاح',
+    'category_not_deleted'                  => 'لم يتم حذف الفئة',
+    'article_inserted_successfully'         => 'تم إجراج المقال بنجاح',
+    'article_not_inserted'                  => 'لم يتم إدراج المقال',
+    'article_updated_successfully'          => 'تم تحديث المقال بنجاح',
+    'article_not_updated'                   => 'لم يتم تحديث المقال',
+    'article_deleted_successfully'          => 'تم حذف المقال بنجاح',
+    'article_not_deleted'                   => 'لم يتم حذف المقال',
+    'article_can_not_deleted'               => 'لا يمكن حذف المقال',
+    'page_created_successfully'             => 'تم إنشاء الصفحة بنجاح',
+    'your_page_updated_successfully'        => 'تم تحديث صفحتك بنجاح',
+    'page_deleted_successfully'             => 'تم حذف الصفحة بنجاح',
+    'settings_updated_successfully'         => 'تم تحديث الإعدادات بنجاح',
+    'settings_can_not_updated'              => 'لا يمكن تحديث الإعدادات',
     'can_not_process'                       => 'Can not process',
-    'comment_published'                     => 'Comment published',
-    'comment_deleted'                       => 'Comment deleted',
-    'publish_time'                          => 'Publish time',
+    'comment_published'                     => 'تم نشر التعليق',
+    'comment_deleted'                       => 'تم حذف التعليق',
+    'publish_time'                          => 'وقت النشر',
     /*
       |----------------------------------------------------------------------------------------
       | Theme Pages [English(en)]
@@ -706,29 +706,29 @@ return [
       | customize your views to better match your application.
       |
      */
-    'themes' => 'Themes',
+    'themes' => 'نُسق',
     /*
       |--------------------------------------
       |  Footer Pages
       |--------------------------------------
      */
-    'footer'  => 'Footer',
-    'footer1' => 'Footer1',
-    'footer2' => 'Footer2',
-    'footer3' => 'Footer3',
-    'footer4' => 'Footer4',
+    'footer'  => 'حيز سفلي',
+    'footer1' => '1حيز سفلي',
+    'footer2' => 'حيز سفلي2',
+    'footer3' => 'حيز سفلي3',
+    'footer4' => 'حيز سفلي4',
     /*
       |--------------------------------------
       |  Custom alert box
       |--------------------------------------
      */
-    'ok'             => 'Ok',
-    'cancel'         => 'Cancel',
-    'select-ticket'  => 'Please select tickets.',
-    'confirm'        => 'Are you sure?',
-    'delete-tickets' => 'Delete tickets',
-    'close-tickets'  => 'Close tickets',
-    'open-tickets'   => 'Open tickets',
+    'ok'             => 'موافق',
+    'cancel'         => 'إلغاء',
+    'select-ticket'  => 'الرجاء إختيار طلب.',
+    'confirm'        => 'هل أنت واثق?',
+    'delete-tickets' => 'حذف الطلبات',
+    'close-tickets'  => 'إغلاق الطلبات',
+    'open-tickets'   => 'فتح الطلبات',
     /*
       |----------------------------------------------------------------------------------------
       | Staff Pages [English(en)]
@@ -739,23 +739,23 @@ return [
       | customize your views to better match your application.
       |
      */
-    'are_you_sure'       => 'Are you sure',
-    'staffs'             => 'Staff',
-    'name'               => 'Name',
-    'user_name'          => 'User name',
-    'status'             => 'Status',
-    'group'              => 'Group',
-    'department'         => 'Department',
-    'created'            => 'Created',
-    'lastlogin'          => 'Last login',
-    'createagent'        => 'Create an agent',
-    'delete'             => 'Delete',
-    'agents'             => 'Agents',
-    'create'             => 'Create',
-    'edit'               => 'Edit',
-    'departments'        => 'Departments',
-    'groups'             => 'Groups',
-    'time_zones'         => 'Time zones',
+    'are_you_sure'       => 'هل أنت واثق',
+    'staffs'             => 'الطاقم',
+    'name'               => 'الإسم',
+    'user_name'          => 'إسم المستخدم',
+    'status'             => 'الحالة',
+    'group'              => 'مجموعة',
+    'department'         => 'قسم',
+    'created'            => 'أنشأ',
+    'lastlogin'          => 'آخر دخول',
+    'createagent'        => 'إنشاء عميل',
+    'delete'             => 'حذف',
+    'agents'             => 'العملاء',
+    'create'             => 'انشاء',
+    'edit'               => 'تحرير',
+    'departments'        => 'الأقسام',
+    'groups'             => 'المجموعات',
+    'time_zones'         => 'مناطق زمنية',
     /*
       |--------------------------------------
       |  Staff Create Page
