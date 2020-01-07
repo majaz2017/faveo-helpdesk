@@ -40,7 +40,7 @@ class="active"
             <i class="fa fa-ban"></i>
             <b>Alert!</b>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <br/>
+            <br />
             @if($errors->first('name'))
             <li class="error-message-padding">{!! $errors->first('name', ':message') !!}</li>
             @endif
@@ -64,7 +64,9 @@ class="active"
             <div class="col-md-6">
                 <div class="form-group {{ $errors->has('grace_period') ? 'has-error' : '' }}">
                     {!! Form::label('grace_period',Lang::get('lang.grace_period')) !!}
-                    {!! Form::select('grace_period',['6 Hours'=>'6 Hours', '12 Hours'=>'12 Hours', '18 Hours'=>'18 Hours', '24 Hours'=>'24 Hours', '36 Hours'=>'36 Hours', '48 Hours'=>'48 Hours'],null,['class' => 'form-control']) !!}
+                    {!! Form::select('grace_period',['1 day'=>'1 day', '2 day'=>'2 day', '1 week'=>'1 week', '2
+                    weeks'=>'2 weeks', '1 month'=>'1 month', '2 months'=>'2 months'],null,['class' => 'form-control'])
+                    !!}
                 </div>
             </div>
             <!-- status radio: required: Active|Dissable -->

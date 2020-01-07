@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
-        <title>Faveo | HELP DESK</title>
+        <title>Crm</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- faveo favicon -->
         <link href="{{asset("lb-faveo/media/images/favicon.ico")}}" rel="shortcut icon">
@@ -11,7 +12,7 @@
         <!-- Font Awesome Icons -->
         <link href="{{asset("lb-faveo/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
-        <link href="{{asset("lb-faveo/css/ionicons.min.css")}}" rel="stylesheet" type="text/css" >
+        <link href="{{asset("lb-faveo/css/ionicons.min.css")}}" rel="stylesheet" type="text/css">
         <!-- Theme style -->
         <link href="{{asset("lb-faveo/css/AdminLTE.css")}}" rel="stylesheet" type="text/css" />
         <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
@@ -19,22 +20,24 @@
         <!-- iCheck -->
         <link href="{{asset("lb-faveo/plugins/iCheck/flat/blue.css")}}" rel="stylesheet" type="text/css" />
         <!-- This controlls the top tabs -->
-        <link href="{{asset("lb-faveo/css/tabby.css")}}" rel="stylesheet" type="text/css" >
+        <link href="{{asset("lb-faveo/css/tabby.css")}}" rel="stylesheet" type="text/css">
         <!-- In app notification style -->
         <link href="{{asset("css/notification-style.css")}}" rel="stylesheet" type="text/css">
 
         <link href="{{asset("lb-faveo/css/jquerysctipttop.css")}}" rel="stylesheet" type="text/css">
 
-        <link  href="{{asset("lb-faveo/css/editor.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{asset("lb-faveo/css/editor.css")}}" rel="stylesheet" type="text/css">
 
-        <link href="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")}}" rel="stylesheet"
+            type="text/css" />
 
-        <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet" type="text/css" >
+        <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet" type="text/css">
         <!-- select2 -->
         <link href="{{asset("lb-faveo/plugins/select2/select2.min.css")}}" rel="stylesheet" type="text/css">
         <!-- Colorpicker -->
 
-        <link href="{{asset("lb-faveo/plugins/colorpicker/bootstrap-colorpicker.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset("lb-faveo/plugins/colorpicker/bootstrap-colorpicker.min.css")}}" rel="stylesheet"
+            type="text/css" />
 
         <script src="{{asset("lb-faveo/plugins/filebrowser/plugin.js")}}" type="text/javascript"></script>
 
@@ -47,6 +50,7 @@
         <![endif]-->
         @yield('HeadInclude')
     </head>
+
     <body class="skin-yellow fixed">
         <?php
         $replacetop = 0;
@@ -67,7 +71,8 @@
         ?>
         <div class="wrapper">
             <header class="main-header">
-                <a href="http://www.faveohelpdesk.com" class="logo"><img src="{{ asset('lb-faveo/media/images/logo.png') }}" width="100px"></a>
+                <a href="{{url('/')}}" class="logo"><img src="{{ asset('lb-faveo/media/images/logo.png') }}"
+                        width="100px"></a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
@@ -83,7 +88,8 @@
 
                         <ul class="nav navbar-nav navbar-left">
                             @if($replacetop==0)
-                            <li @yield('settings')><a href="{!! url('dashboard') !!}">{!! Lang::get('lang.agent_panel') !!}</a></li>
+                            <li @yield('settings')><a href="{!! url('dashboard') !!}">{!! Lang::get('lang.agent_panel')
+                                    !!}</a></li>
                             @else
                             <?php \Event::fire('service.desk.admin.topbar', array()); ?>
                             @endif
@@ -93,114 +99,149 @@
                             @include('themes.default1.update.notification')
                             <!-- User Account: style can be found in dropdown.less -->
                             <ul class="nav navbar-nav navbar-right">
-                            <!-- User Account: style can be found in dropdown.less -->
-                            <li class="dropdown notifications-menu" id="myDropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="myFunction()">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="label label-danger" id="count">{!! $notifications->count() !!}</span>
-                                </a>
-                                <ul class="dropdown-menu" style="width:500px">
+                                <!-- User Account: style can be found in dropdown.less -->
+                                <li class="dropdown notifications-menu" id="myDropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="myFunction()">
+                                        <i class="fa fa-bell-o"></i>
+                                        <span class="label label-danger" id="count">{!! $notifications->count()
+                                            !!}</span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="width:500px">
 
-                                    <div id="alert11" class="alert alert-success alert-dismissable" style="display:none;">
-                                        <button id="dismiss11" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <h4><i class="icon fa fa-check"></i>Alert!</h4>
-                                        <div id="message-success1"></div>
+                                        <div id="alert11" class="alert alert-success alert-dismissable"
+                                            style="display:none;">
+                                            <button id="dismiss11" type="button" class="close" data-dismiss="alert"
+                                                aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-check"></i>Alert!</h4>
+                                            <div id="message-success1"></div>
+                                        </div>
+
+                                        <li id="refreshNote">
+
+                                        <li class="header">You have {!! $notifications->count() !!} notifications. <a
+                                                class="pull-right" id="read-all" href="#">Mark all as read.</a></li>
+
+                                        <ul class="menu">
+
+                                            @if($notifications->count())
+                                            @foreach($notifications->orderBy('created_at', 'desc')->get()->take(10) as
+                                            $notification)
+
+                                            @if($notification->notification->type->type == 'registration')
+                                            @if($notification->is_read == 1)
+                                            <li class="task" style="list-style: none; margin-left: -30px;">
+                                                <span>&nbsp<img src="{{$notification -> users -> profile_pic}}"
+                                                        class="user-image" style="width:6%;height: 5%"
+                                                        alt="User Image" />
+                                                    <a href="{!! route('user.show', $notification->notification->model_id) !!}"
+                                                        id="{{$notification -> notification_id}}" class='noti_User'>
+                                                        {!! $notification->notification->type->message !!}
+                                                    </a></span>
+                                            </li>
+                                            @else
+                                            <li style="list-style: none; margin-left: -30px;"><span>&nbsp<img
+                                                        src="{{$notification -> users -> profile_pic}}"
+                                                        class="user-image" style="width:6%;height: 5%"
+                                                        alt="User Image" />
+                                                    <a href="{!! route('user.show', $notification->notification->model_id) !!}"
+                                                        id="{{$notification -> notification_id}}" class='noti_User'>
+                                                        {!! $notification->notification->type->message !!}
+                                                    </a></span>
+                                            </li>
+                                            @endif
+                                            @else
+                                            @if($notification->is_read == 1)
+                                            <li class="task" style="list-style: none;margin-left: -30px"><span>&nbsp<img
+                                                        src="{{$notification -> users -> profile_pic}}"
+                                                        class="img-circle" style="width:6%;height: 5%"
+                                                        alt="User Image" />
+                                                    <a href="{!! route('ticket.thread', $notification->notification->model_id) !!}"
+                                                        id='{{ $notification -> notification_id}}' class='noti_User'>
+                                                        {!! $notification->notification->type->message !!} with id
+                                                        "{!!$notification->notification->model->ticket_number!!}"
+                                                    </a></span>
+                                            </li>
+                                            @elseif($notification->notification->model)
+                                            <li style="list-style: none;margin-left: -30px"><span>&nbsp<img
+                                                        src="{{$notification -> users -> profile_pic}}"
+                                                        class="img-circle" style="width:6%;height: 5%"
+                                                        alt="User Image" />
+                                                    <a href="{!! route('ticket.thread', $notification->notification->model_id) !!}"
+                                                        id='{{ $notification -> notification_id}}' class='noti_User'>
+                                                        {!! $notification->notification->type->message !!} with id
+                                                        "{!!$notification->notification->model->ticket_number!!}"
+                                                    </a></span>
+                                            </li>
+                                            @endif
+                                            @endif
+                                            @endforeach
+                                            @endif
+                                        </ul>
+                                </li>
+                                <li class="footer no-border">
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-2">
+                                        <img src="{{asset("lb-faveo/media/images/gifloader.gif")}}"
+                                            style="display: none;" id="notification-loader">
                                     </div>
-
-                                    <li id="refreshNote">
-
-                                    <li class="header">You have {!! $notifications->count() !!} notifications. <a class="pull-right" id="read-all" href="#">Mark all as read.</a></li>
-
-                                    <ul class="menu">
-
-                                        @if($notifications->count())
-                                        @foreach($notifications->orderBy('created_at', 'desc')->get()->take(10) as $notification)
-
-                                        @if($notification->notification->type->type == 'registration')
-                                        @if($notification->is_read == 1)
-                                        <li class="task" style="list-style: none; margin-left: -30px;"><span>&nbsp<img src="{{$notification -> users -> profile_pic}}" class="user-image"  style="width:6%;height: 5%" alt="User Image" />
-                                                <a href="{!! route('user.show', $notification->notification->model_id) !!}" id="{{$notification -> notification_id}}" class='noti_User'>
-                                                    {!! $notification->notification->type->message !!}
-                                                </a></span>
-                                        </li>
-                                        @else
-                                        <li style="list-style: none; margin-left: -30px;"><span>&nbsp<img src="{{$notification -> users -> profile_pic}}" class="user-image"  style="width:6%;height: 5%" alt="User Image" />
-                                                <a href="{!! route('user.show', $notification->notification->model_id) !!}" id="{{$notification -> notification_id}}" class='noti_User'>
-                                                    {!! $notification->notification->type->message !!}
-                                                </a></span>
-                                        </li>
-                                        @endif
-                                        @else
-                                        @if($notification->is_read == 1)
-                                        <li  class="task" style="list-style: none;margin-left: -30px"><span>&nbsp<img src="{{$notification -> users -> profile_pic}}" class="img-circle"  style="width:6%;height: 5%" alt="User Image" />
-                                                <a href="{!! route('ticket.thread', $notification->notification->model_id) !!}" id='{{ $notification -> notification_id}}' class='noti_User'>
-                                                    {!! $notification->notification->type->message !!} with id "{!!$notification->notification->model->ticket_number!!}"
-                                                </a></span>
-                                        </li>
-                                        @elseif($notification->notification->model)
-                                        <li style="list-style: none;margin-left: -30px"><span>&nbsp<img src="{{$notification -> users -> profile_pic}}" class="img-circle"  style="width:6%;height: 5%" alt="User Image" />
-                                                <a href="{!! route('ticket.thread', $notification->notification->model_id) !!}" id='{{ $notification -> notification_id}}' class='noti_User'>
-                                                    {!! $notification->notification->type->message !!} with id "{!!$notification->notification->model->ticket_number!!}"
-                                                </a></span>
-                                        </li>
-                                        @endif
-                                        @endif
-                                        @endforeach
-                                        @endif
-                                    </ul>
+                                    <div class="col-md-5"></div>
+                                </li>
+                                <li class="footer"><a href="{{ url('notifications-list')}}">View all</a>
+                                </li>
+                            </ul>
                             </li>
-                            <li class="footer no-border"><div class="col-md-5"></div><div class="col-md-2">
-                                    <img src="{{asset("lb-faveo/media/images/gifloader.gif")}}" style="display: none;" id="notification-loader">
-                                </div><div class="col-md-5"></div></li>
-                            <li class="footer"><a href="{{ url('notifications-list')}}">View all</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                            <?php $src = Lang::getLocale().'.png'; ?>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img src="{{asset("lb-faveo/flags/$src")}}"></img> &nbsp;<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                @foreach($langs as $key => $value)
-                                            <?php $src = $key.".png"; ?>
-                                            <li><a href="#" id="{{$key}}" onclick="changeLang(this.id)"><img src="{{asset("lb-faveo/flags/$src")}}"></img>&nbsp;{{$value[0]}}&nbsp;
+                            <li class="dropdown">
+                                <?php $src = Lang::getLocale().'.png'; ?>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img
+                                        src="{{asset("lb-faveo/flags/$src")}}"></img> &nbsp;<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @foreach($langs as $key => $value)
+                                    <?php $src = $key.".png"; ?>
+                                    <li><a href="#" id="{{$key}}" onclick="changeLang(this.id)"><img
+                                                src="{{asset("lb-faveo/flags/$src")}}"></img>&nbsp;{{$value[0]}}&nbsp;
                                             @if(Lang::getLocale() == "ar")
                                             &rlm;
                                             @endif
                                             ({{$value[1]}})</a></li>
-                                @endforeach       
-                            </ul>
-                        </li>
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                @if(Auth::user())
-
-                                <img src="{{Auth::user()->profile_pic}}"class="user-image" alt="User Image"/>
-
-                                <span class="hidden-xs">{!! Auth::user()->first_name." ".Auth::user()->last_name !!}</span>
-                                @endif
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header" style="background-color:#343F44;">
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     @if(Auth::user())
-                                    <img src="{{Auth::user()->profile_pic}}" class="img-circle" alt="User Image" />
-                                    <p>
-                                        {!! Auth::user()->first_name !!}{!! " ". Auth::user()->last_name !!} - {{Auth::user()->role}}
-                                        <small></small>
-                                    </p>
+
+                                    <img src="{{Auth::user()->profile_pic}}" class="user-image" alt="User Image" />
+
+                                    <span class="hidden-xs">{!! Auth::user()->first_name." ".Auth::user()->last_name
+                                        !!}</span>
                                     @endif
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer"  style="background-color:#1a2226;">
-                                    <div class="pull-left">
-                                        <a href="{{url('admin-profile')}}" class="btn btn-info btn-sm"><b>{!! Lang::get('lang.profile') !!}</b></a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{{url('auth/logout')}}" class="btn btn-danger btn-sm"><b>{!! Lang::get('lang.sign_out') !!}</b></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header" style="background-color:#343F44;">
+                                        @if(Auth::user())
+                                        <img src="{{Auth::user()->profile_pic}}" class="img-circle" alt="User Image" />
+                                        <p>
+                                            {!! Auth::user()->first_name !!}{!! " ". Auth::user()->last_name !!} -
+                                            {{Auth::user()->role}}
+                                            <small></small>
+                                        </p>
+                                        @endif
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer" style="background-color:#1a2226;">
+                                        <div class="pull-left">
+                                            <a href="{{url('admin-profile')}}" class="btn btn-info btn-sm"><b>{!!
+                                                    Lang::get('lang.profile') !!}</b></a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="{{url('auth/logout')}}" class="btn btn-danger btn-sm"><b>{!!
+                                                    Lang::get('lang.sign_out') !!}</b></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -210,7 +251,7 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <div class="user-panel">
-                        <div class = "row">
+                        <div class="row">
                             <div class="col-xs-3"></div>
                             <div class="col-xs-2" style="width:50%;">
                                 <a href="{!! url('profile') !!}">
@@ -233,17 +274,25 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         @if($replaceside==0)
-                        <center><a href="{{url('admin')}}"><li class="header"><span style="font-size:1.5em;">{{ Lang::get('lang.admin_panel') }}</span></li></a></center>
+                        <center><a href="{{url('admin')}}">
+                                <li class="header"><span
+                                        style="font-size:1.5em;">{{ Lang::get('lang.admin_panel') }}</span></li>
+                            </a></center>
                         <li class="header">{!! Lang::get('lang.settings-2') !!}</li>
                         <li class="treeview @yield('Staffs')">
-                            <a  href="#">
-                                <i class="fa fa-users"></i> <span>{!! Lang::get('lang.staffs') !!}</span> <i class="fa fa-angle-left pull-right"></i>
+                            <a href="#">
+                                <i class="fa fa-users"></i> <span>{!! Lang::get('lang.staffs') !!}</span> <i
+                                    class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('agents')><a href="{{ url('agents') }}"><i class="fa fa-user "></i>{!! Lang::get('lang.agents') !!}</a></li>
-                                <li @yield('departments')><a href="{{ url('departments') }}"><i class="fa fa-sitemap"></i>{!! Lang::get('lang.departments') !!}</a></li>
-                                <li @yield('teams')><a href="{{ url('teams') }}"><i class="fa fa-users"></i>{!! Lang::get('lang.teams') !!}</a></li>
-                                <li @yield('groups')><a href="{{ url('groups') }}"><i class="fa fa-users"></i>{!! Lang::get('lang.groups') !!}</a></li>
+                                <li @yield('agents')><a href="{{ url('agents') }}"><i class="fa fa-user "></i>{!!
+                                        Lang::get('lang.agents') !!}</a></li>
+                                <li @yield('departments')><a href="{{ url('departments') }}"><i
+                                            class="fa fa-sitemap"></i>{!! Lang::get('lang.departments') !!}</a></li>
+                                <li @yield('teams')><a href="{{ url('teams') }}"><i class="fa fa-users"></i>{!!
+                                        Lang::get('lang.teams') !!}</a></li>
+                                <li @yield('groups')><a href="{{ url('groups') }}"><i class="fa fa-users"></i>{!!
+                                        Lang::get('lang.groups') !!}</a></li>
                             </ul>
                         </li>
 
@@ -254,12 +303,18 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('emails')><a href="{{ url('emails') }}"><i class="fa fa-envelope"></i>{!! Lang::get('lang.emails') !!}</a></li>
-                                <li @yield('ban')><a href="{{ url('banlist') }}"><i class="fa fa-ban"></i>{!! Lang::get('lang.ban_lists') !!}</a></li>
-                                <li @yield('template')><a href="{{ url('template-sets') }}"><i class="fa fa-mail-forward"></i>{!! Lang::get('lang.templates') !!}</a></li>
-                                <li @yield('email')><a href="{{url('getemail')}}"><i class="fa fa-at"></i>{!! Lang::get('lang.email-settings') !!}</a></li>
-                                <li @yield('queue')><a href="{{ url('queue') }}"><i class="fa fa-upload"></i>{!! Lang::get('lang.queues') !!}</a></li>
-                                <li @yield('diagnostics')><a href="{{ url('getdiagno') }}"><i class="fa fa-plus"></i>{!! Lang::get('lang.diagnostics') !!}</a></li>
+                                <li @yield('emails')><a href="{{ url('emails') }}"><i class="fa fa-envelope"></i>{!!
+                                        Lang::get('lang.emails') !!}</a></li>
+                                <li @yield('ban')><a href="{{ url('banlist') }}"><i class="fa fa-ban"></i>{!!
+                                        Lang::get('lang.ban_lists') !!}</a></li>
+                                <li @yield('template')><a href="{{ url('template-sets') }}"><i
+                                            class="fa fa-mail-forward"></i>{!! Lang::get('lang.templates') !!}</a></li>
+                                <li @yield('email')><a href="{{url('getemail')}}"><i class="fa fa-at"></i>{!!
+                                        Lang::get('lang.email-settings') !!}</a></li>
+                                <li @yield('queue')><a href="{{ url('queue') }}"><i class="fa fa-upload"></i>{!!
+                                        Lang::get('lang.queues') !!}</a></li>
+                                <li @yield('diagnostics')><a href="{{ url('getdiagno') }}"><i class="fa fa-plus"></i>{!!
+                                        Lang::get('lang.diagnostics') !!}</a></li>
 
                                 <!-- <li><a href="#"><i class="fa fa-circle-o"></i> Auto Response</a></li> -->
                                 <!-- <li><a href="#"><i class="fa fa-circle-o"></i> Rules/a></li> -->
@@ -275,25 +330,38 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('help')><a href="{{url('helptopic')}}"><i class="fa fa-file-text-o"></i>{!! Lang::get('lang.help_topics') !!}</a></li>
-                                <li @yield('sla')><a href="{{url('sla')}}"><i class="fa fa-clock-o"></i>{!! Lang::get('lang.sla_plans') !!}</a></li>
-                                <li @yield('forms')><a href="{{url('forms')}}"><i class="fa fa-file-text"></i>{!! Lang::get('lang.forms') !!}</a></li>
-                                <li @yield('workflow')><a href="{{url('workflow')}}"><i class="fa fa-sitemap"></i>{!! Lang::get('lang.workflow') !!}</a></li>
-                                <li @yield('priority')><a href="{{url('ticket/priority')}}"><i class="fa fa-asterisk"></i>{!! Lang::get('lang.priority') !!}</a></li>
-                                <li @yield('url')><a href="{{url('url/settings')}}"><i class="fa fa-server"></i>{!! Lang::get('lang.url') !!}</a></li>
+                                <li @yield('help')><a href="{{url('helptopic')}}"><i class="fa fa-file-text-o"></i>{!!
+                                        Lang::get('lang.help_topics') !!}</a></li>
+                                <li @yield('sla')><a href="{{url('sla')}}"><i class="fa fa-clock-o"></i>{!!
+                                        Lang::get('lang.sla_plans') !!}</a></li>
+                                <li @yield('forms')><a href="{{url('forms')}}"><i class="fa fa-file-text"></i>{!!
+                                        Lang::get('lang.forms') !!}</a></li>
+                                <li @yield('workflow')><a href="{{url('workflow')}}"><i class="fa fa-sitemap"></i>{!!
+                                        Lang::get('lang.workflow') !!}</a></li>
+                                <li @yield('priority')><a href="{{url('ticket/priority')}}"><i
+                                            class="fa fa-asterisk"></i>{!! Lang::get('lang.priority') !!}</a></li>
+                                <li @yield('url')><a href="{{url('url/settings')}}"><i class="fa fa-server"></i>{!!
+                                        Lang::get('lang.url') !!}</a></li>
                             </ul>
                         </li>
                         <li class="treeview @yield('Tickets')">
-                            <a  href="#">
-                                <i class="fa fa-ticket"></i> <span>{!! Lang::get('lang.tickets') !!}</span> <i class="fa fa-angle-left pull-right"></i>
+                            <a href="#">
+                                <i class="fa fa-ticket"></i> <span>{!! Lang::get('lang.tickets') !!}</span> <i
+                                    class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('tickets')><a href="{{url('getticket')}}"><i class="fa fa-file-text"></i>{!! Lang::get('lang.ticket') !!}</a></li>
-                                <li @yield('auto-response')><a href="{{url('getresponder')}}"><i class="fa fa-reply-all"></i>{!! Lang::get('lang.auto_response') !!}</a></li>
-                                <li @yield('alert')><a href="{{url('getalert')}}"><i class="fa fa-bell"></i>{!! Lang::get('lang.alert_notices') !!}</a></li>
-                                <li @yield('status')><a href="{{url('setting-status')}}"><i class="fa fa-plus-square-o"></i>{!! Lang::get('lang.status') !!}</a></li>
-                                <li @yield('ratings')><a href="{{url('getratings')}}"><i class="fa fa-star"></i>{!! Lang::get('lang.ratings') !!}</a></li>
-                                <li @yield('close-workflow')><a href="{{url('close-workflow')}}"><i class="fa fa-sitemap"></i>{!! Lang::get('lang.close-workflow') !!}</a></li>
+                                <li @yield('tickets')><a href="{{url('getticket')}}"><i class="fa fa-file-text"></i>{!!
+                                        Lang::get('lang.ticket') !!}</a></li>
+                                <li @yield('auto-response')><a href="{{url('getresponder')}}"><i
+                                            class="fa fa-reply-all"></i>{!! Lang::get('lang.auto_response') !!}</a></li>
+                                <li @yield('alert')><a href="{{url('getalert')}}"><i class="fa fa-bell"></i>{!!
+                                        Lang::get('lang.alert_notices') !!}</a></li>
+                                <li @yield('status')><a href="{{url('setting-status')}}"><i
+                                            class="fa fa-plus-square-o"></i>{!! Lang::get('lang.status') !!}</a></li>
+                                <li @yield('ratings')><a href="{{url('getratings')}}"><i class="fa fa-star"></i>{!!
+                                        Lang::get('lang.ratings') !!}</a></li>
+                                <li @yield('close-workflow')><a href="{{url('close-workflow')}}"><i
+                                            class="fa fa-sitemap"></i>{!! Lang::get('lang.close-workflow') !!}</a></li>
                             </ul>
                         </li>
                         <li class="treeview @yield('Settings')">
@@ -303,14 +371,22 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('company')><a href="{{url('getcompany')}}"><i class="fa fa-building"></i>{!! Lang::get('lang.company') !!}</a></li>
-                                <li @yield('system')><a href="{{url('getsystem')}}"><i class="fa fa-laptop"></i>{!! Lang::get('lang.system') !!}</a></li>
-                                <li @yield('social-login')><a href="{{ url('social/media') }}"><i class="fa fa-globe"></i> {!! Lang::get('lang.social-login') !!}</a></li>
-                                <li @yield('languages')><a href="{{url('languages')}}"><i class="fa fa-language"></i>{!! Lang::get('lang.language') !!}</a></li>
-                                <li @yield('cron')><a href="{{url('job-scheduler')}}"><i class="fa fa-hourglass"></i>{!! Lang::get('lang.cron') !!}</a></li>
-                                <li @yield('security')><a href="{{url('security')}}"><i class="fa fa-lock"></i>{!! Lang::get('lang.security') !!}</a></li>
-                                <li @yield('notification')><a href="{{url('settings-notification')}}"><i class="fa fa-bell"></i>{!! Lang::get('lang.notifications') !!}</a></li>
-                                <li @yield('storage')><a href="{{url('storage')}}"><i class="fa fa-save"></i>{!! Lang::get('storage::lang.storage') !!}</a></li>
+                                <li @yield('company')><a href="{{url('getcompany')}}"><i class="fa fa-building"></i>{!!
+                                        Lang::get('lang.company') !!}</a></li>
+                                <li @yield('system')><a href="{{url('getsystem')}}"><i class="fa fa-laptop"></i>{!!
+                                        Lang::get('lang.system') !!}</a></li>
+                                <li @yield('social-login')><a href="{{ url('social/media') }}"><i
+                                            class="fa fa-globe"></i> {!! Lang::get('lang.social-login') !!}</a></li>
+                                <li @yield('languages')><a href="{{url('languages')}}"><i class="fa fa-language"></i>{!!
+                                        Lang::get('lang.language') !!}</a></li>
+                                <li @yield('cron')><a href="{{url('job-scheduler')}}"><i class="fa fa-hourglass"></i>{!!
+                                        Lang::get('lang.cron') !!}</a></li>
+                                <li @yield('security')><a href="{{url('security')}}"><i class="fa fa-lock"></i>{!!
+                                        Lang::get('lang.security') !!}</a></li>
+                                <li @yield('notification')><a href="{{url('settings-notification')}}"><i
+                                            class="fa fa-bell"></i>{!! Lang::get('lang.notifications') !!}</a></li>
+                                <li @yield('storage')><a href="{{url('storage')}}"><i class="fa fa-save"></i>{!!
+                                        Lang::get('storage::lang.storage') !!}</a></li>
                             </ul>
                         </li>
                         <li class="treeview @yield('error-bugs')">
@@ -321,7 +397,8 @@
                             </a>
                             <ul class="treeview-menu">
                                 <!-- <li @yield('error-logs')><a href="{{ route('error.logs') }}"><i class="fa fa-list-alt"></i> {!! Lang::get('lang.view-logs') !!}</a></li> -->
-                                <li @yield('debugging-option')><a href="{{ route('err.debug.settings') }}"><i class="fa fa-bug"></i> {!! Lang::get('lang.debug-options') !!}</a></li>
+                                <li @yield('debugging-option')><a href="{{ route('err.debug.settings') }}"><i
+                                            class="fa fa-bug"></i> {!! Lang::get('lang.debug-options') !!}</a></li>
                             </ul>
                         </li>
                         <li class="treeview @yield('Themes')">
@@ -331,8 +408,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li @yield('widget')><a href="{{ url('widgets') }}"><i class="fa fa-list-alt"></i> {!! Lang::get('lang.widgets') !!}</a></li>
-                                <li @yield('socail')><a href="{{ url('social-buttons') }}"><i class="fa fa-cubes"></i> {!! Lang::get('lang.social') !!}</a></li>
+                                <li @yield('widget')><a href="{{ url('widgets') }}"><i class="fa fa-list-alt"></i> {!!
+                                        Lang::get('lang.widgets') !!}</a></li>
+                                <li @yield('socail')><a href="{{ url('social-buttons') }}"><i class="fa fa-cubes"></i>
+                                        {!! Lang::get('lang.social') !!}</a></li>
                             </ul>
                         </li>
                         <li class="treeview @yield('Plugins')">
@@ -377,23 +456,27 @@
                     @if($dummy_installation == 1 || $dummy_installation == '1')
                     <div class="alert alert-info alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <i class="icon fa  fa-exclamation-triangle"></i> {{Lang::get('lang.dummy_data_installation_message')}} <a href="{{route('clean-database')}}">{{Lang::get('lang.click')}}</a> {{Lang::get('lang.clear-dummy-data')}}
+                        <i class="icon fa  fa-exclamation-triangle"></i>
+                        {{Lang::get('lang.dummy_data_installation_message')}} <a
+                            href="{{route('clean-database')}}">{{Lang::get('lang.click')}}</a>
+                        {{Lang::get('lang.clear-dummy-data')}}
                     </div>
                     @elseif (!$is_mail_conigured)
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="callout callout-warning lead">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="callout callout-warning lead">
                                 <h4><i class="fa fa-exclamation-triangle"></i>&nbsp;{{Lang::get('Alert')}}</h4>
                                 <p style="font-size:0.8em">
-                                @if (\Auth::user()->role == 'admin')
-                                    {{Lang::get('lang.system-outgoing-incoming-mail-not-configured')}}&nbsp;<a href="{{URL::route('emails.create')}}">{{Lang::get('lang.confihure-the-mail-now')}}</a>
-                                @else
+                                    @if (\Auth::user()->role == 'admin')
+                                    {{Lang::get('lang.system-outgoing-incoming-mail-not-configured')}}&nbsp;<a
+                                        href="{{URL::route('emails.create')}}">{{Lang::get('lang.confihure-the-mail-now')}}</a>
+                                    @else
                                     {{Lang::get('lang.system-mail-not-configured-agent-message')}}
-                                @endif
+                                    @endif
                                 </p>
-                                </div>
                             </div>
                         </div>
+                    </div>
                     @endif
                     @yield('content')
                 </section><!-- /.content -->
@@ -406,7 +489,10 @@
                 <?php
                 $company = App\Model\helpdesk\Settings\Company::where('id', '=', '1')->first();
                 ?>
-                <strong>{!! Lang::get('lang.copyright') !!} &copy; {!! date('Y') !!}  <a href="{!! $company->website !!}" target="_blank">{!! $company->company_name !!}</a>.</strong> {!! Lang::get('lang.all_rights_reserved') !!}. {!! Lang::get('lang.powered_by') !!} <a href="http://www.alexor.co.il/" target="_blank">alexor</a>
+                <strong>{!! Lang::get('lang.copyright') !!} &copy; {!! date('Y') !!} <a href="{!! $company->website !!}"
+                        target="_blank">{!! $company->company_name !!}</a>.</strong> {!!
+                Lang::get('lang.all_rights_reserved') !!}. {!! Lang::get('lang.powered_by') !!} <a
+                    href="http://www.alexor.co.il/" target="_blank">alexor</a>
             </footer>
         </div><!-- ./wrapper -->
         <!-- jQuery 2.1.3 -->
@@ -426,30 +512,31 @@
 
         <script src="{{asset("lb-faveo/plugins/datatables/jquery.dataTables.js")}}" type="text/javascript"></script>
         <!-- Page Script -->
-        <script src="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js")}}" type="text/javascript"></script>
+        <script src="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js")}}"
+            type="text/javascript"></script>
 
-        <script src="{{asset("lb-faveo/js/jquery.dataTables1.10.10.min.js")}}"  type="text/javascript"></script>
+        <script src="{{asset("lb-faveo/js/jquery.dataTables1.10.10.min.js")}}" type="text/javascript"></script>
 
-        <script src="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.js")}}"  type="text/javascript"></script>
+        <script src="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.js")}}" type="text/javascript"></script>
         <!-- Colorpicker -->
-        <script src="{{asset("lb-faveo/plugins/colorpicker/bootstrap-colorpicker.min.js")}}" ></script>
+        <script src="{{asset("lb-faveo/plugins/colorpicker/bootstrap-colorpicker.min.js")}}"></script>
         <!--date time picker-->
         <script src="{{asset("lb-faveo/js/bootstrap-datetimepicker4.7.14.min.js")}}" type="text/javascript"></script>
         <!-- select2 -->
-         <script src="{{asset("lb-faveo/plugins/select2/select2.min.js")}}" ></script>
+        <script src="{{asset("lb-faveo/plugins/select2/select2.min.js")}}"></script>
 
-@if (trim($__env->yieldContent('no-toolbar')))
-    <h1>@yield('no-toolbar')</h1>
-@else
-    <script>
-    $(function () {
+        @if (trim($__env->yieldContent('no-toolbar')))
+        <h1>@yield('no-toolbar')</h1>
+        @else
+        <script>
+            $(function () {
     //Add text editor
         $("textarea").wysihtml5();
     });
-    </script>
-@endif
-    <script>
-        $('#read-all').click(function () {
+        </script>
+        @endif
+        <script>
+            $('#read-all').click(function () {
 
             var id2 = <?php echo \Auth::user()->id ?>;
             var dataString = 'id=' + id2;
@@ -472,16 +559,17 @@
                             $('#myDropdown').removeClass('open');
                         }
                     });
-        });</script>
+        });
+        </script>
 
-    <script src="{{asset("lb-faveo/js/tabby.js")}}"></script>
-    <!-- CK Editor -->
-    <script src="{{asset("lb-faveo/plugins/filebrowser/plugin.js")}}"></script>
-    <script src="{{asset("lb-faveo/js/languagechanger.js")}}" type="text/javascript"></script>
-    @yield('FooterInclude')
-</body>
-<script>
-    $(function() {
+        <script src="{{asset("lb-faveo/js/tabby.js")}}"></script>
+        <!-- CK Editor -->
+        <script src="{{asset("lb-faveo/plugins/filebrowser/plugin.js")}}"></script>
+        <script src="{{asset("lb-faveo/js/languagechanger.js")}}" type="text/javascript"></script>
+        @yield('FooterInclude')
+    </body>
+    <script>
+        $(function() {
 
 
         $('input[type="checkbox"]').iCheck({
@@ -492,5 +580,6 @@
         });
 
     });
-</script>
+    </script>
+
 </html>
