@@ -1396,7 +1396,7 @@ return [
     'api_key'                          => 'API key',
     'api_key_mandatory'                => 'API key mandatory',
     'api_configurations'               => 'API configurations',
-    'generate_key'                     => 'Generate key',
+    'generate_key'                     => 'צור מפתיח',
     'api_settings'                     => 'API הגדרות',
     /*
      * -----------------------------------------------------------------------------
@@ -1404,56 +1404,56 @@ return [
      * --------------------------------------------------------------------------
      *
      */
-    'error-debug'                        => 'Error logs and debugging',
-    'debug-options'                      => 'Debugging options',
-    'view-logs'                          => 'View error logs',
-    'not-authorised-error-debug'         => 'You are not authorised to access the URL',
-    'error-debug-settings'               => 'Error and debugging settings',
-    'debugging'                          => 'Debugging mode',
-    'bugsnag-debugging'                  => 'Send app crash reports to help Ladybird improve Faveo',
-    'error-debug-settings-saved-message' => 'Your error and debugging settings have been saved successfully',
-    'error-debug-settings-error-message' => 'You have not made any change in the settings.',
-    'error-logs'                         => 'Error logs',
+    'error-debug'                        => 'יומני שגיאות וניפוי באגים',
+    'debug-options'                      => 'אפשרויות ניקוי באגים',
+    'view-logs'                          => 'צפה ביומני שגיאות',
+    'not-authorised-error-debug'         => 'אינך מורשה לגשת לכתובת האתר',
+    'error-debug-settings'               => 'הגדרות שגיאה וניפוי באגים',
+    'debugging'                          => 'מצב ניפוי באגים',
+    'bugsnag-debugging'                  => 'שלח דוחות קריסה של אפליקציות כדי לעזור לצוות אלקסור לשפר את המערכת',
+    'error-debug-settings-saved-message' => 'הגדרות השגיאה והבאגים שלך נשמרו בהצלחה',
+    'error-debug-settings-error-message' => 'לא ביצעת שינוי בהגדרות.',
+    'error-logs'                         => 'יומני שגיאות',
     /* ---------------------------------------------------------------------------------------
      * Latest update 16-06-2016
      * -----------------------------------------------------------------------------------
      */
-    'that_email_is not_available_in_this_system' => 'That Email is not available in this System',
-    'use_subject'                                => 'Use Subject',
-    'reopen'                                     => 'Reopen',
-    'invalid_attempt'                            => 'Invalid Attempt',
+    'that_email_is not_available_in_this_system' => 'דואל זה אינו זמין במערכת זו',
+    'use_subject'                                => 'השתמש בנושא',
+    'reopen'                                     => 'נפתח מחדש',
+    'invalid_attempt'                            => 'ניסיון לא חוקי',
     /* ---------------------------------------------------------------------------------------
      * Latest update 27-07-2016
      * -----------------------------------------------------------------------------------
      */
-    'queue'  => 'Queue',
-    'queues' => 'Queues',
+    'queue'  => 'תור',
+    'queues' => 'תורים',
     /*     * -------------------------------------------------------------------------------------------------
      * OTP  messages body to send to user while registering, resetting passwords
      * --------------------------------------------------------------------------------------------------
      */
     'hello'                   => 'שלום',
-    'reset-link-msg'          => ",\r\nHere is the link to reset your password.\r\n",
-    'otp-for-your'            => ",\r\nOTP for your",
-    'account-verification-is' => 'account verification is',
-    'extra-text'              => ".\r\nYou can login to verify your account via OTP or just click on the link we've sent to your email address.",
-    'otp-not-sent'            => 'We faced some problem in sending OTP please try after some time.',
+    'reset-link-msg'          => ",\r\nזה הקישור לשחזר סיסמה\r\n",
+    'otp-for-your'            => ",\r\nOTP שלך",
+    'account-verification-is' => 'אימות חשבון הוא',
+    'extra-text'              => ".\r\n אתה יכול להתחבר כדי לאמת את חשבונך באמצעות OTP או פשוט ללחוץ על הקישור ששלחנו לכתובת הדואל שלך.",
+    'otp-not-sent'            => 'נתקלנו בבעיה כלשהי בשליחת OTP אנא נסה לאחר זמן מה.',
     /*     * -------------------------------------------------------------------------------------------
      * Ticket number settings 03-08-2016
      * ------------------------------------------------------------------------------------------
      */
     'format'               => 'פורמט',
-    'ticket-number-format' => 'This setting is used to generate ticket numbers. Use hash signs (`#`) where digits are to be placed & dollar sign(‘$’) where characters are to be placed . Any other text in the number format will be preserved. ',
-    'ticket-number-type'   => 'Choose a sequence from which to derive new ticket numbers. The system has a incrementing sequence and a random sequence by default',
+    'ticket-number-format' => 'הגדרה זו משמשת לייצור מספרי כרטיסים. השתמש בסימני חשיש (#) שבהם יש להציב ספרות ושלט דולר ($) במקום להציב תווים. כל טקסט אחר בתבנית המספרים יישמר.',
+    'ticket-number-type'   => 'בחר רצף שממנו ניתן לגזור מספרי כרטיסים חדשים. למערכת יש רצף מצטבר ורצף אקראי כברירת מחדל',
     /*     * ----------------------------------------------------------------------------------------------------
      * Social media integration
      * ---------------------------------------------------------------------------------------------------------
      */
-    'client_id'     => 'Client id',
-    'client_secret' => 'Client secret',
-    'redirect'      => 'Redirect URL',
-    'details'       => 'Details',
-    'social-media'  => 'Social media',
+    'client_id'     => 'מזהה לקוח',
+    'client_secret' => 'סוד הלקוח',
+    'redirect'      => 'כתובת אתר להפניה מחדש',
+    'details'       => 'פרטים',
+    'social-media'  => 'רשת חברתית',
     /*     * ----------------------------------------------------------------------------------------------
      * Report
      * ----------------------------------------------------------------------------------------------
@@ -1467,58 +1467,58 @@ return [
     'day'                 => 'יום',
     'week'                => 'שבוע',
     'month'               => 'חודש',
-    'Currnet_In_Progress' => 'CURRENT IN PROGRESS',
-    'Total_Created'       => 'TOTAL CREATED',
-    'Total_Reopened'      => 'TOTAL REOPENED',
-    'Total_Closed'        => 'TOTAL CLOSED',
+    'Currnet_In_Progress' => 'שוטף בהתקדמות',
+    'Total_Created'       => 'נוצר בסך הכל',
+    'Total_Reopened'      => 'סהכ נפתח מחדש',
+    'Total_Closed'        => 'סך הכל סגור',
     'tabular'             => 'Tabular',
-    'reopened'            => 'Reopened',
+    'reopened'            => 'נפתח מחדש',
     /* ---------------------------------------------------------------------------------------
      * Ticket Priority
      * -----------------------------------------------------------------------------------
      */
-    'ticket_priority'                                           => 'Ticket priority',
-    'priority'                                                  => 'Priority',
-    'priority_desc'                                             => 'Priority description',
-    'priority_urgency'                                          => 'Priority urgency',
-    'priority_id'                                               => 'Priority Id',
-    'priority_color'                                            => 'Priority color',
-    'ispublic'                                                  => 'IsPublic',
-    'is_default'                                                => 'By default',
-    'create_ticket_priority'                                    => 'Create ticket priority',
-    'agent_notes'                                               => 'Agent notes',
-    'select_priority'                                           => 'Select priority',
-    'normal'                                                    => 'Normal',
-    'ispublic'                                                  => 'Visibility',
-    'make-default-priority'                                     => 'Make default priority',
-    'priority_successfully_created'                             => 'Priority successfully created',
-    'priority_successfully_updated'                             => 'Priority successfully updated',
-    'delete_successfully'                                       => 'Delete successfully',
-    'user_priority_status'                                      => 'User priority status',
-    'current'                                                   => 'Current:',
-    'active_user_can_select_the_priority_while_creating_ticket' => 'Active user can select the priority while creating ticket',
+    'ticket_priority'                                           => 'עדיפות פנייה',
+    'priority'                                                  => 'עדיפות',
+    'priority_desc'                                             => 'תאור עדיפות',
+    'priority_urgency'                                          => 'דחיפות בעדיפות',
+    'priority_id'                                               => 'מזהה עדיפות',
+    'priority_color'                                            => 'צבע עדיפות',
+    'ispublic'                                                  => 'האם ציבורי',
+    'is_default'                                                => 'ברירת מחדל',
+    'create_ticket_priority'                                    => 'צור עדיפות פנייה',
+    'agent_notes'                                               => 'הערות מטפל',
+    'select_priority'                                           => 'בחר עדיפות',
+    'normal'                                                    => 'רגיל',
+    'ispublic'                                                  => 'נראות',
+    'make-default-priority'                                     => 'קבע עדיפות לברירת מחדל',
+    'priority_successfully_created'                             => 'עדיפות נוצרה בהצלחה',
+    'priority_successfully_updated'                             => 'העדיפות עודכנה בהצלחה',
+    'delete_successfully'                                       => 'מחק בהצלחה',
+    'user_priority_status'                                      => 'סטטוס עדיפות למשתמש',
+    'current'                                                   => 'נוכחי:',
+    'active_user_can_select_the_priority_while_creating_ticket' => 'משתמש פעיל יכול לבחור את העדיפות בעת יצירת הפנייה',
 
     /* --------------------------------------------------------------------------------------------
      * Approval Updated
      * --------------------------------------------------------------------------------------------
      */
-    'approval'             => 'Approval',
-    'approval_tickets'     => 'Approval tickets',
-    'approve'              => 'Approve',
-    'approval_request'     => 'Approval request',
-    'approvel_ticket_list' => 'Approvel ticket list',
+    'approval'             => 'הסכמה',
+    'approval_tickets'     => 'פניות מאושרות',
+    'approve'              => 'אשר',
+    'approval_request'     => 'בקשה לאישור',
+    'approvel_ticket_list' => 'רשימת פניות מאושרות',
 
-    'approval_settings'                      => 'Approval settings',
-    'close_all_ticket_for_approval'          => 'Close all tickets for approval',
-    'approval_settings-created-successfully' => 'Approval settings created successfully',
+    'approval_settings'                      => 'הגדרות אישור',
+    'close_all_ticket_for_approval'          => 'סגור את כל הפניות לאישור',
+    'approval_settings-created-successfully' => 'הגדרות האישור נוצרו בהצלחה',
 
     /* --------------------------------------------------------------------------------------------
      * Followup Updated
      * --------------------------------------------------------------------------------------------
      */
-     'followup'              => 'Followup',
-     'followup_tickets'      => 'Followup tickets',
-     'followup_Notification' => 'Followup notification',
+     'followup'              => 'עוקב',
+     'followup_tickets'      => 'פניות עוקבות',
+     'followup_Notification' => 'התראות עוקבות',
 
      /*
       *--------------------------------------------------------------------------------------------
@@ -1531,29 +1531,29 @@ return [
      * --------------------------------------------------------------------------------------------
      */
      'agent_report'                                                 => 'דוח מטפל',
-     'assign_tickets'                                               => 'Assign tickets',
+     'assign_tickets'                                               => 'הקצאת פניות',
      'delete_agent'                                                 => 'מחק מטפל',
      'delete_user'                                                  => 'מחק משתמש',
      'confirm_deletion'                                             => 'אישור מחיקה',
      'delete_all_content'                                           => 'הסר כל התוכן',
      'agent_profile'                                                => 'פרופיל מטפל',
-     'change_role_to_admin'                                         => 'Change role to admin',
-     'change_role_to_user'                                          => 'Change role to user',
-     'change_role_to_agent'                                         => 'Change role to agent',
-     'change_password'                                              => 'Change password',
-     'role_change'                                                  => 'Role change',
-     'password_generator'                                           => 'Password generator',
+     'change_role_to_admin'                                         => 'שנה הרשאה למנהל',
+     'change_role_to_user'                                          => 'שנה הרשאה למשתמש',
+     'change_role_to_agent'                                         => 'שנה הרשאה למטפל',
+     'change_password'                                              => 'שנה סיסמה',
+     'role_change'                                                  => 'שנה הרשאה',
+     'password_generator'                                           => 'צור סיסמה',
      'depertment'                                                   => 'מחלקה',
-     'duetoday'                                                     => 'Due today',
-     'today-due_tickets'                                            => 'Today\'s due tickets',
-     'password_change_successfully'                                 => 'Password changed successfully',
-     'role_change_successfully'                                     => 'Role changed successfully',
-     'user_delete_successfully'                                     => 'User deleted successfully',
-     'agent_delete_successfully'                                    => 'Agent deleted successfully',
+     'duetoday'                                                     => 'עקב היום',
+     'today-due_tickets'                                            => 'כרטיסים להיום',
+     'password_change_successfully'                                 => 'הסיסמה שונתה בהצלחה',
+     'role_change_successfully'                                     => 'ההרשאה שונתה בהצלחה',
+     'user_delete_successfully'                                     => 'המשתמש נמחק בהצלחה',
+     'agent_delete_successfully'                                    => 'המטפל נמחק בהצלחה',
      'select_another_agent'                                         => 'בחר מטפל אחר',
-     'agent_delete_successfully_and_ticket_assign_to_another_agent' => 'Agent deleted successfully and ticket assigned to another agent',
+     'agent_delete_successfully_and_ticket_assign_to_another_agent' => 'המטפל נמחק בהצלחה והפנייה הוקצה למטפל אחר',
      'deleted_user'                                                 => 'משתמש נמחק',
-     'deleted_user_directory'                                       => 'Deleted User Directory',
+     'deleted_user_directory'                                       => 'ספריית משתמש נמחקה',
      'restore'                                                      => 'שחזר',
      'user_restore_successfully'                                    => 'המשתמש שוחזר בהצלחה',
 
@@ -1561,27 +1561,27 @@ return [
      'apply'              => 'Apply',
 
      /* updates 2-12-2016 **/
-     'sort-by'                      => 'Sort by',
+     'sort-by'                      => 'מיין לפי',
      'created-at'                   => 'נוצר ב',
      'or'                           => 'או',
      'activate'                     => 'פעיל',
-     'system-email-not-configured'  => 'System could not send emails to users as it does not have the email configured to send outgoing mails. Please contact and report system admin.',
-     'assign-ticket'                => 'Assign tickets',
-     'can-not-inactive-group'       => 'Can not make the group inactive as it has agents assigned in it. Please assign those agents to another group and try again.',
-     'internal-note-has-been-added' => 'Internal note added to the ticket',
-     'active-users'                 => 'Active users',
-     'deleted-users'                => 'Deleted users',
-     'view-option'                  => 'View options',
-     'accoutn-not-verified'         => 'User account is not verified',
-     'enabled'                      => 'Enabled',
-     'disabled'                     => 'Disabled',
-     'user-account-is-deleted'      => 'This user account has been deleted.',
-     'restore-user'                 => 'Restore user account',
-     'delete-account-caution-info'  => 'Please note this account may still have  open tickets in the system.',
-     'reply-can-not-be-empty'       => 'Reply can not be blank. Please enter your reply.',
+     'system-email-not-configured'  => 'המערכת לא הצליחה לשלוח דואל למשתמשים מכיוון שאין בה את הדואל מוגדר לשליחת הודעות דואל. אנא צור קשר ודווח על מנהל המערכת.',
+     'assign-ticket'                => 'הקצה פניות',
+     'can-not-inactive-group'       => 'לא ניתן להפוך את הקבוצה ללא פעילה שכן יש לה מטפלים שהוקצו בה. אנא הקצה את אותם מטפלים לקבוצה אחרת ונסה שוב.',
+     'internal-note-has-been-added' => 'פתק פנימי נוסף לפנייה',
+     'active-users'                 => 'משתמשים פעילים',
+     'deleted-users'                => 'משתמשים שנמחקו',
+     'view-option'                  => 'הצג אפשריות',
+     'accoutn-not-verified'         => 'חשבון המשתמש אינו מאומת',
+     'enabled'                      => 'מופעל',
+     'disabled'                     => 'מושבת',
+     'user-account-is-deleted'      => 'חשבון משתמש זה נמחק',
+     'restore-user'                 => 'שחזר חשבון משתמש',
+     'delete-account-caution-info'  => 'שים לב שבחשבון זה עשויים להיות פניות פתוחים במערכת.',
+     'reply-can-not-be-empty'       => 'תגובה לא יכולה להיות ריקה. אנא הכנס את תשובתך.',
 
      //update 18-12-2016
-     'account-created-contact-admin-as-we-were-not-able-to-send-opt' => 'Your account has been created successfully. Please contact admin for account activation as we were not able to send you an OTP code.',
+     'account-created-contact-admin-as-we-were-not-able-to-send-opt' => 'חשבונך נוצר בהצלחה. אנא צור קשר עם מנהל המערכת להפעלת חשבון מכיוון שלא הצלחנו לשלוח לך קוד OTP.',
      //update 19-12-2016
      'only-agents'         => 'משתמשים מטפלים',
      'only-users'          => 'משתמשים לקוחות',
@@ -1589,9 +1589,9 @@ return [
      'inactive-users'      => 'משתמשים לא פעילים',
      'all-users'           => 'כל המשתמשים',
      //update 21-12-2016
-     'selected-user-is-already-the-owner' => 'Selected user is already the owner of this ticket.',
+     'selected-user-is-already-the-owner' => 'משתמש שנבחר הוא כבר הבעלים של פנייה זו.',
      //updated 15-5-2017
-     'session-expired'     => 'Session expired or invalid, please try again.',
+     'session-expired'     => 'Sessionפג תוקף או לא תקף, נסה שוב.',
 
     //update since v1.10
     'your_helpdesk_is_ready'                       => 'המערכת שלך מוכנה לשימוש!',
