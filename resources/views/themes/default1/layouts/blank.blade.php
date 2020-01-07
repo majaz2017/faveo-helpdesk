@@ -1,20 +1,33 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
 
-        <title> SUPPORT CENTER | CLIENT PANEL</title>
+        <?php
+        $title = App\Model\helpdesk\Settings\System::where('id', '=', '1')->first();
+        if (isset($title->name)) {
+            $title_name = $title->name;
+        } else {
+            $title_name = "SUPPORT CENTER";
+        }
+        ?>
+        <title> @yield('title') {!! strip_tags($title_name) !!} </title>
 
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"
+            type="text/css" />
         <!-- Font Awesome Icons -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+            type="text/css" />
         <!-- Ionicons -->
-        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet"
+            type="text/css" />
         <!-- fullCalendar 2.2.5-->
         <link href="{{asset("lb-faveo/plugins/fullcalendar/fullcalendar.min.css")}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset("lb-faveo/plugins/fullcalendar/fullcalendar.print.css")}}" rel="stylesheet" type="text/css" media='print' />
+        <link href="{{asset("lb-faveo/plugins/fullcalendar/fullcalendar.print.css")}}" rel="stylesheet" type="text/css"
+            media='print' />
         <!-- Theme style -->
         <link href="{{asset("dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -35,6 +48,7 @@
         <![endif]-->
         @yield('HeadInclude')
     </head>
+
     <body class="skin-yellow">
         <div class="wrapper">
 
@@ -67,81 +81,85 @@
 
                                             <li>
                                                 <a href="{{url('auth/login')}}" class="logo"><span>Sign In</span></a>
-                                            &nbsp;</li>
+                                                &nbsp;</li>
 
                                             <li>
-                                                <a href="{{url('auth/register')}}" class="logo"><span>Register</span></a>
+                                                <a href="{{url('auth/register')}}"
+                                                    class="logo"><span>Register</span></a>
                                             </li>
                                         </ul>
                                     </div>
 
                                 </ul>
                             </div>
-                        </nav>
-                            </header>
-                            <!-- Left side column. contains the logo and sidebar -->
-                            <aside class="main-sidebar">
-                                <!-- sidebar: style can be found in sidebar.less -->
-                                <section class="sidebar">
-                                        <ul class="sidebar-menu">
-                                            <li class="header">MAIN NAVIGATION</li>
-                                                <li>
-                                                    <a href="{{url('getform')}}">
-                                                        <i class="fa fa-envelope"></i> <span>Open A New Ticket</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{url('checkticket')}}">
-                                                        <i class="fa fa-th"></i> <span>Check your Ticket</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">MAIN NAVIGATION</li>
+                        <li>
+                            <a href="{{url('getform')}}">
+                                <i class="fa fa-envelope"></i> <span>Open A New Ticket</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('checkticket')}}">
+                                <i class="fa fa-th"></i> <span>Check your Ticket</span>
+                            </a>
+                        </li>
+                    </ul>
 
-                                        </ul>
-                                </section>
-                                <!-- /.sidebar -->
-                            </aside>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
 
-                            <!-- Right side column. Contains the navbar and content of the page -->
-                            <div class="content-wrapper">
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <div class="content-wrapper">
 
-                                <section class="content-header">
-                                    @yield('PageHeader')
-                                    @yield('breadcrumbs')
-                                </section>
+                <section class="content-header">
+                    @yield('PageHeader')
+                    @yield('breadcrumbs')
+                </section>
 
-                                <!-- Main content -->
-                                <section class="content">
+                <!-- Main content -->
+                <section class="content">
 
-                                    @yield('content')
-                                </section><!-- /.content -->
-                                <!-- /.content-wrapper -->
-                            </div>
-                            <footer class="main-footer">
-                                <div class="pull-right hidden-xs">
-                                    <b>{!! Lang::get('lang.version') !!}</b> 0.1
-                                </div>
-                           <strong>Copyright &copy; {!! date('Y') !!}  <a href="{!! $company->website !!}">{!! $company->company_name !!}</a>.</strong> All rights reserved. Powered by <a href="http://www.faveohelpdesk.com/">Faveo</a>
-                            </footer>
-                    </div><!-- ./wrapper -->
+                    @yield('content')
+                </section><!-- /.content -->
+                <!-- /.content-wrapper -->
+            </div>
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>{!! Lang::get('lang.version') !!}</b> 0.1
+                </div>
+                <strong>Copyright &copy; {!! date('Y') !!} <a href="{!! $company->website !!}">{!!
+                        $company->company_name !!}</a>.</strong> All rights reserved. Powered by <a
+                    href="http://www.faveohelpdesk.com/">Faveo</a>
+            </footer>
+        </div><!-- ./wrapper -->
 
-                    <!-- jQuery 2.1.1 -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <!-- Bootstrap 3.3.2 JS -->
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-                    <!-- Slimscroll -->
-                    <script src="{{asset("lb-faveo/plugins/slimScroll/jquery.slimscroll.min.js")}}" type="text/javascript"></script>
-                    <!-- FastClick -->
-                    <script src="{{asset("lb-faveo/plugins/fastclick/fastclick.min.js")}}"></script>
-                    <!-- AdminLTE App -->
-                    <script src="{{asset("dist/js/app.min.js")}}" type="text/javascript"></script>
-                    <!-- AdminLTE for demo purposes -->
-                    {{-- // <script src="{{asset("dist/js/demo.js")}}" type="text/javascript"></script> --}}
-                    <!-- iCheck -->
-                    <script src="{{asset("lb-faveo/plugins/iCheck/icheck.min.js")}}" type="text/javascript"></script>
-                    <!-- Page Script -->
-                    <script>
-$(function() {
+        <!-- jQuery 2.1.1 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.2 JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <!-- Slimscroll -->
+        <script src="{{asset("lb-faveo/plugins/slimScroll/jquery.slimscroll.min.js")}}" type="text/javascript"></script>
+        <!-- FastClick -->
+        <script src="{{asset("lb-faveo/plugins/fastclick/fastclick.min.js")}}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{asset("dist/js/app.min.js")}}" type="text/javascript"></script>
+        <!-- AdminLTE for demo purposes -->
+        {{-- // <script src="{{asset("dist/js/demo.js")}}" type="text/javascript"></script> --}}
+        <!-- iCheck -->
+        <script src="{{asset("lb-faveo/plugins/iCheck/icheck.min.js")}}" type="text/javascript"></script>
+        <!-- Page Script -->
+        <script>
+            $(function() {
     //Enable iCheck plugin for checkboxes
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"]').iCheck({
@@ -182,22 +200,24 @@ $(function() {
         }
     });
 });
-                    </script>
-                    <script type="text/javascript">
-                        //     $(document).ready(function() {
+        </script>
+        <script type="text/javascript">
+            //     $(document).ready(function() {
 
                         //         $("#content").Editor();
 
                         //     });
-                        // </script>
-                   <!-- // <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script> -->
-                    <script src="{{asset("dist/js/tabby.js")}}"></script>
-                     <!-- // <script src="{{asset("dist/js/editor.js")}}"></script> -->
-                    <!-- CK Editor -->
-                    <script src="{{asset("//cdn.ckeditor.com/4.4.3/standard/ckeditor.js")}}"></script>
-                    <script src="{{asset("//cdn.ckeditor.com/4.4.3/full/ckeditor.js")}}"></script>
-                    <script src="{{asset("lb-faveo/plugins/filebrowser/plugin.js")}}"></script>
+                        // 
+        </script>
+        <!-- // <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script> -->
+        <script src="{{asset("dist/js/tabby.js")}}"></script>
+        <!-- // <script src="{{asset("dist/js/editor.js")}}"></script> -->
+        <!-- CK Editor -->
+        <script src="{{asset("//cdn.ckeditor.com/4.4.3/standard/ckeditor.js")}}"></script>
+        <script src="{{asset("//cdn.ckeditor.com/4.4.3/full/ckeditor.js")}}"></script>
+        <script src="{{asset("lb-faveo/plugins/filebrowser/plugin.js")}}"></script>
 
-                    @yield('FooterInclude')
-                    </body>
-                    </html>
+        @yield('FooterInclude')
+    </body>
+
+</html>

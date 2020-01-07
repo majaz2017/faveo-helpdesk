@@ -40,7 +40,7 @@ class="active"
             <i class="fa fa-ban"></i>
             <b>Alert!</b>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <br/>
+            <br />
             @if($errors->first('name'))
             <li class="error-message-padding">{!! $errors->first('name', ':message') !!}</li>
             @endif
@@ -53,8 +53,8 @@ class="active"
         </div>
         @endif
         <!-- Name text form Required -->
-        <div class="box-body table-responsive no-padding"style="overflow:hidden;">
-        <!-- <table class="table table-hover" style="overflow:hidden;"> -->
+        <div class="box-body table-responsive no-padding" style="overflow:hidden;">
+            <!-- <table class="table table-hover" style="overflow:hidden;"> -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -66,14 +66,17 @@ class="active"
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('grace_period') ? 'has-error' : '' }}">
                         {!! Form::label('grace_period',Lang::get('lang.grace_period')) !!}
-                        {!! Form::select('grace_period',['6 Hours'=>'6 Hours', '12 Hours'=>'12 Hours', '18 Hours'=>'18 Hours', '24 Hours'=>'24 Hours', '36 Hours'=>'36 Hours', '48 Hours'=>'48 Hours'],null,['class' => 'form-control']) !!}
+                        {!! Form::select('grace_period',['1 day'=>'1 day', '2 day'=>'2 day', '1 week'=>'1 week', '2
+                        weeks'=>'2 weeks', '1 month'=>'1 month', '2 months'=>'2 months'],null,['class' =>
+                        'form-control']) !!}
                     </div>
                 </div>
                 <!-- status radio: required: Active|Dissable -->
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
                         {!! Form::label('status',Lang::get('lang.status')) !!}&nbsp;
-                        {!! Form::radio('status','1',true) !!} &nbsp; {{Lang::get('lang.active')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!! Form::radio('status','1',true) !!} &nbsp;
+                        {{Lang::get('lang.active')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         {!! Form::radio('status','0') !!} &nbsp; {{Lang::get('lang.inactive')}}
                     </div>
                 </div>
@@ -91,7 +94,8 @@ class="active"
     </div>
     <div class="box-footer">
         <div class="form-group">
-            <input type="checkbox" name="sys_sla" @if($slas->id == $sla->sla) checked disabled @endif> {{ Lang::get('lang.make-default-sla')}}
+            <input type="checkbox" name="sys_sla" @if($slas->id == $sla->sla) checked disabled @endif>
+            {{ Lang::get('lang.make-default-sla')}}
         </div>
         {!! Form::submit(Lang::get('lang.update'),['class'=>'btn btn-primary'])!!}
     </div>
