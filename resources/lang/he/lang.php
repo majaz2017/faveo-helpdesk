@@ -1596,7 +1596,7 @@ return [
     //update since v1.10
     'your_helpdesk_is_ready'                       => 'המערכת שלך מוכנה לשימוש!',
     'all_right_sparky_you_have_made_it'            => 'All right, sparky! You’ve made it through the installation.',
-    'next_step'                                    => 'שלב הבא',3
+    'next_step'                                    => 'שלב הבא',
     'login_to_faveo'                               => 'התחברות לאלקסור',
     'learn_more'                                   => 'למד יותר',
     'video_walk_through'                           => 'Video walk through',
