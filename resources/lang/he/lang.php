@@ -1351,7 +1351,7 @@ return [
     'forgot_password'                                                                  => 'שכחתי סיסמה',
     'create_account'                                                                   => 'צור חשבון',
     'you_are_here'                                                                     => 'אתה נמצא כאן',
-    'have_a_ticket'                                                                    => 'יש לך פנייה',
+    'have_a_ticket'                                                                    => 'הגשת פנייה קודם',
     'check_ticket_status'                                                              => 'בדוק סטטוס פנייה',
     'choose_a_help_topic'                                                              => 'בחר מאמר עזרה',
     'ticket_status'                                                                    => 'סטטוס פנייה',

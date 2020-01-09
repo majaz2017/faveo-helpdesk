@@ -36,7 +36,15 @@
         <link href="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")}}" rel="stylesheet"
             type="text/css" />
 
-        <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet" type="text/css">
+        @if($rtl->option_value)
+        <link href="{{asset("lb-faveo/css/rtl/bootstrap.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset("lb-faveo/plugins/datatables/RTLdataTables.bootstrap.css")}}" rel="stylesheet"
+            type="text/css" />
+
+        @else
+        <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet"
+            type="text/css" />
+        @endif
         <!-- select2 -->
         <link href="{{asset("lb-faveo/plugins/select2/select2.min.css")}}" rel="stylesheet" type="text/css">
         <!-- Colorpicker -->

@@ -41,10 +41,13 @@
         <link href="{{asset("lb-faveo/css/editor.css")}}" rel="stylesheet" type="text/css" />
 
         <link href="{{asset("lb-faveo/css/jquery.ui.css")}}" rel="stylesheet" rel="stylesheet" />
-
+        @if($rtl->option_value)
+        <link href="{{asset("lb-faveo/plugins/datatables/RTLdataTables.bootstrap.css")}}" rel="stylesheet"
+            type="text/css" />
+        @else
         <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet"
             type="text/css" />
-
+        @endif
         <link href="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")}}" rel="stylesheet"
             type="text/css" />
 
