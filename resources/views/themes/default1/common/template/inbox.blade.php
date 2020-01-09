@@ -1,14 +1,23 @@
 @extends('themes.default1.admin.layout.admin')
 @section('content')
 
+<?php
+$rtl = Finder::getRtl();
+if ($rtl->option_value) 
+$rtl_class="btn btn-primary pull-left";
+else {
+ 
+    $rtl_class="btn btn-primary pull-right";
+}
 
+   ?>
 
 <div class="box box-primary">
 
     <div class="box-header">
 
         <h4>{{Lang::get('lang.templates')}}
-        <a href="{{url('templates/create')}}" class="btn btn-primary pull-right   ">{{Lang::get('lang.create')}}</a></h4>
+            <a href="{{url('templates/create')}}" class="{{$rtl_class}}   ">{{Lang::get('lang.create')}}</a></h4>
     </div>
 
     @if (count($errors) > 0)
@@ -43,7 +52,7 @@
 
     <div class="box-body">
         <div class="row">
-            
+
             <div class="col-md-12">
                 {!! Datatable::table()
                 ->addColumn('Name','Type','Action')
@@ -55,20 +64,20 @@
                 [
                 "text" => "Delete",
                 "action" => "function ( e, dt, node, config ) {
-                    $.ajax({
-                        url: 'templates-delete',
-                        type: 'GET',
-                        data: $('#check:checked').serialize(),
-                        beforeSend: function () {
-                                $('#gif').show();
-                            },
-                        success: function (data) {
-                                $('#gif').hide();
-                                $('#response').html(data);
-                                location.reload();
-                            }
-                        
-                    });
+                $.ajax({
+                url: 'templates-delete',
+                type: 'GET',
+                data: $('#check:checked').serialize(),
+                beforeSend: function () {
+                $('#gif').show();
+                },
+                success: function (data) {
+                $('#gif').hide();
+                $('#response').html(data);
+                location.reload();
+                }
+
+                });
                 }"
                 ]
                 ],

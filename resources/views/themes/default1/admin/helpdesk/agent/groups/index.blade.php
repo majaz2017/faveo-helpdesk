@@ -28,10 +28,23 @@ class="active"
 <!-- content -->
 @section('content')
 <div class="row">
+    <?php
+    $rtl = Finder::getRtl();
+    if ($rtl->option_value) 
+    $rtl_class="btn btn-primary pull-left";
+    else {
+     
+        $rtl_class="btn btn-primary pull-right";
+    }
+    
+       ?>
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header">
-                <h2 class="box-title">{!! Lang::get('lang.list_of_groups') !!}</h2><a href="{{route('groups.create')}}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;{{Lang::get('lang.create_group')}}</a></div>
+                <h2 class="box-title">{!! Lang::get('lang.list_of_groups') !!}</h2><a href="{{route('groups.create')}}"
+                    class="{{$rtl_class}}"><span class="glyphicon glyphicon-plus"></span>
+                    &nbsp;{{Lang::get('lang.create_group')}}</a>
+            </div>
             <div class="box-body table-responsive">
                 <!-- check whether success or not -->
                 @if(Session::has('success'))
@@ -68,7 +81,8 @@ class="active"
                             @endif
                         <td>
                             {!! Form::open(['route'=>['groups.destroy', $group->id],'method'=>'DELETE']) !!}
-                            <a href="{{route('groups.edit', $group->id)}}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-edit" style="color:black;"> </i> Edit</a>
+                            <a href="{{route('groups.edit', $group->id)}}" class="btn btn-info btn-xs btn-flat"><i
+                                    class="fa fa-edit" style="color:black;"> </i> Edit</a>
                             <!-- To pop up a confirm Message -->
                             {!! Form::button('<i class="fa fa-trash" style="color:black;"> </i> Delete',
                             ['type' => 'submit',

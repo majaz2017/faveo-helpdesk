@@ -28,10 +28,21 @@ class="active"
 <!-- /breadcrumbs -->
 <!-- content -->
 @section('content')
+<?php
+$rtl = Finder::getRtl();
+if ($rtl->option_value) 
+$rtl_class="btn btn-primary pull-left";
+else {
+ 
+    $rtl_class="btn btn-primary pull-right";
+}
+
+   ?>
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title">{{Lang::get('lang.help_topic')}}</h3>
-        <a href="{{route('helptopic.create')}}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;{{Lang::get('lang.create_help_topic')}}</a>
+        <a href="{{route('helptopic.create')}}" class="{{$rtl_class}}"><span class="glyphicon glyphicon-plus"></span>
+            &nbsp;{{Lang::get('lang.create_help_topic')}}</a>
     </div>
     <div class="box-body table-responsive">
         <!-- check whether success or not -->
@@ -118,21 +129,22 @@ class="active"
                 <!-- Deleting Fields -->
                 <td>
                     {!! Form::open(['route'=>['helptopic.destroy', $topic->id],'method'=>'DELETE']) !!}
-                    <a href="{{route('helptopic.edit',$topic->id)}}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-trash" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
+                    <a href="{{route('helptopic.edit',$topic->id)}}" class="btn btn-info btn-xs btn-flat"><i
+                            class="fa fa-trash" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
                     <!-- To pop up a confirm Message -->
                     {!! Form::button('<i class="fa fa-trash" style="color:black;"> </i> '.Lang::get('lang.delete'),
                     ['type' => 'submit',
                     'class'=> 'btn btn-warning btn-xs btn-flat '.$disable,
                     'onclick'=>'return confirm("Are you sure?")'])
                     !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-                @endforeach
-            </tr>
-            <!-- Set a link to Create Page -->
-
-        </table>
     </div>
+    {!! Form::close() !!}
+    </td>
+    @endforeach
+    </tr>
+    <!-- Set a link to Create Page -->
+
+    </table>
+</div>
 </div>
 @stop

@@ -28,9 +28,21 @@ class="active"
 <!-- /breadcrumbs -->
 <!-- content -->
 @section('content')
+<?php
+if ($rtl->option_value) 
+$rtl_class="btn btn-primary pull-left";
+else {
+ 
+    $rtl_class="btn btn-primary pull-right";
+}
+
+   ?>
 <div class="box box-primary">
     <div class="box-header">
-        <h2 class="box-title">{!! Lang::get('lang.list_of_departments') !!}</h2><a href="{{route('departments.create')}}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;{{Lang::get('lang.create_a_department')}}</a></div>
+        <h2 class="box-title">{!! Lang::get('lang.list_of_departments') !!}</h2><a
+            href="{{route('departments.create')}}" class="{{$rtl_class}}"><span class="glyphicon glyphicon-plus"></span>
+            &nbsp;{{Lang::get('lang.create_a_department')}}</a>
+    </div>
     <div class="box-body table-responsive ">
         <!-- check whether success or not -->
         @if(Session::has('success'))
@@ -103,7 +115,8 @@ class="active"
                 <td>{{ $manager }}</td>
                 <td>
                     {!! Form::open(['route'=>['departments.destroy', $department->id],'method'=>'DELETE']) !!}
-                    <a href="{{route('departments.edit', $department->id)}}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
+                    <a href="{{route('departments.edit', $department->id)}}" class="btn btn-info btn-xs btn-flat"><i
+                            class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
                     {{-- @if($default_department == $department->id) --}}
                     {{-- @else --}}
                     <!-- To pop up a confirm Message -->

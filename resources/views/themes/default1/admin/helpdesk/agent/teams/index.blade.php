@@ -27,11 +27,24 @@ class="active"
 <!-- /breadcrumbs -->
 <!-- content -->
 @section('content')
+<?php
+$rtl = Finder::getRtl();
+if ($rtl->option_value) 
+$rtl_class="btn btn-primary pull-left";
+else {
+ 
+    $rtl_class="btn btn-primary pull-right";
+}
+
+   ?>
 <div class="row">
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header">
-                <h2 class="box-title">{{Lang::get('lang.list_of_teams')}}</h2><a href="{{route('teams.create')}}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> &nbsp;{{Lang::get('lang.create_team')}}</a></div>
+                <h2 class="box-title">{{Lang::get('lang.list_of_teams')}}</h2><a href="{{route('teams.create')}}"
+                    class="{{$rtl_class}}"><span class="glyphicon glyphicon-plus"></span>
+                    &nbsp;{{Lang::get('lang.create_team')}}</a>
+            </div>
             <div class="box-body table-responsive">
                 <!-- check whether success or not -->
                 @if(Session::has('success'))
@@ -81,18 +94,23 @@ class="active"
                             {!! Form::open(['route'=>['teams.destroy', $team->id],'method'=>'DELETE']) !!}
 
                             <!-- To pop up a confirm Message -->
-                           @if ($team->status == 0) 
-                            <a href="{{route('teams.show', $team->id)}}" class="btn btn-success btn-xs btn-flat" disabled='disabled'><i class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.show') !!}</a>
-                            
+                            @if ($team->status == 0)
+                            <a href="{{route('teams.show', $team->id)}}" class="btn btn-success btn-xs btn-flat"
+                                disabled='disabled'><i class="fa fa-edit" style="color:black;"> </i> {!!
+                                Lang::get('lang.show') !!}</a>
+
                             @endif
-                             @if ($team->status == 1) 
-                            <a href="{{route('teams.show', $team->id)}}" class="btn btn-success btn-xs btn-flat" ><i class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.show') !!}</a>
-                            
+                            @if ($team->status == 1)
+                            <a href="{{route('teams.show', $team->id)}}" class="btn btn-success btn-xs btn-flat"><i
+                                    class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.show') !!}</a>
+
                             @endif
 
-                            <a href="{{route('teams.edit', $team->id)}}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
-                            
-                            {!! Form::button('<i class="fa fa-trash" style="color:black;"> </i> '.Lang::get('lang.delete'),
+                            <a href="{{route('teams.edit', $team->id)}}" class="btn btn-info btn-xs btn-flat"><i
+                                    class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!}</a>
+
+                            {!! Form::button('<i class="fa fa-trash" style="color:black;"> </i>
+                            '.Lang::get('lang.delete'),
                             ['type' => 'submit',
                             'class'=> 'btn btn-warning btn-xs btn-flat',
                             'onclick'=>'return confirm("Are you sure?")'])

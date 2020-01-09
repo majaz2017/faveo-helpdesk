@@ -28,9 +28,21 @@ class="active"
 <!-- content -->
 @section('content')
 <div class="box box-primary">
+    <?php
+    $rtl = Finder::getRtl();
+    if ($rtl->option_value) 
+    $rtl_class="btn btn-primary pull-left";
+    else {
+     
+        $rtl_class="btn btn-primary pull-right";
+    }
+    
+       ?>
     <div class="box-header">
-        <h2 class="box-title">{!! Lang::get('lang.list_of_agents') !!} </h2><a href="{{route('agents.create')}}" class="btn btn-primary pull-right">
-        <span class="glyphicon glyphicon-plus"></span> &nbsp;{!! Lang::get('lang.create_an_agent') !!}</a></div>
+        <h2 class="box-title">{!! Lang::get('lang.list_of_agents') !!} </h2><a href="{{route('agents.create')}}"
+            class="{{ $rtl_class}}">
+            <span class="glyphicon glyphicon-plus"></span> &nbsp;{!! Lang::get('lang.create_an_agent') !!}</a>
+    </div>
     <div class="box-body table-responsive">
         <?php
         $user = App\User::where('role', '!=', 'user')->orderBy('id', 'ASC')->paginate(10);
@@ -77,7 +89,8 @@ class="active"
             @foreach($user as $use)
             @if($use->role == 'admin' || $use->role == 'agent')
             <tr>
-                <td><a href="{{route('agents.edit', $use->id)}}"> {!! $use->first_name !!} {!! " ". $use->last_name !!}</a></td>
+                <td><a href="{{route('agents.edit', $use->id)}}"> {!! $use->first_name !!} {!! " ". $use->last_name
+                        !!}</a></td>
                 <td><a href="{{route('agents.edit', $use->id)}}"> {!! $use->user_name !!}</td>
                 <?php
                 if ($use->role == 'admin') {
@@ -102,7 +115,8 @@ class="active"
                 {{-- <td>{{$use->Lastlogin_at}}</td> --}}
                 <td>
                     {!! Form::open(['route'=>['agents.destroy', $use->id],'method'=>'DELETE']) !!}
-                    <a href="{{route('agents.edit', $use->id)}}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!} </a>
+                    <a href="{{route('agents.edit', $use->id)}}" class="btn btn-info btn-xs btn-flat"><i
+                            class="fa fa-edit" style="color:black;"> </i> {!! Lang::get('lang.edit') !!} </a>
                     <!-- To pop up a confirm Message -->
                     {{-- {!! Form::button(' <i class="fa fa-trash" style="color:black;"> </i> '  . Lang::get('lang.delete') ,['type' => 'submit', 'class'=> 'btn btn-warning btn-xs btn-flat','onclick'=>'return confirm("Are you sure?")']) !!} --}}
                     {!! Form::close() !!}
