@@ -29,6 +29,7 @@ class="active"
 <!-- content -->
 @section('content')
 <?php
+$rtl = Finder::getRtl();
 if ($rtl->option_value) 
 $rtl_class="btn btn-primary pull-left";
 else {
