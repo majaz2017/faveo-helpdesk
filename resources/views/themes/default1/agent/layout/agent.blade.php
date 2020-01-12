@@ -25,6 +25,7 @@
         <link href="{{asset("lb-faveo/css/ionicons.min.css")}}" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         @if($rtl->option_value)
+        <link href="{{asset("lb-faveo/css/rtl/bootstrap.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{asset("lb-faveo/css/RTLAdminLTE.css")}}" rel="stylesheet" type="text/css" />
         @else
         <link href="{{asset("lb-faveo/css/AdminLTE.css")}}" rel="stylesheet" type="text/css" />

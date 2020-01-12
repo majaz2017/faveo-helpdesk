@@ -439,9 +439,11 @@ a:focus {
 }
 .content-header {
   position: relative;
+  margin-right: 230px;
   padding: 15px 15px 0 15px;
 }
 .content-header > h1 {
+  float: left;
   margin: 0;
   font-size: 24px;
 }
@@ -1637,7 +1639,7 @@ a:focus {
   margin-right: 5px;
 }
 .box-header > .box-tools {
-  position: absolute;
+  /*position: absolute;*/
   right: 10px;
   top: 5px;
 }

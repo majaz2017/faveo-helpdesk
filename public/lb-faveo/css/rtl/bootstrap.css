@@ -2018,7 +2018,7 @@ pre code {
   .col-md-10,
   .col-md-11,
   .col-md-12 {
-    float: left;
+    float: right;
   }
   .col-md-12 {
     width: 100%;
@@ -6749,10 +6749,10 @@ button.close {
   margin-left: auto;
 }
 .pull-right {
-  float: right !important;
+  float: left !important;
 }
 .pull-left {
-  float: left !important;
+  float: right !important;
 }
 .hide {
   display: none !important;
