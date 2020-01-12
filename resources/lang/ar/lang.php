@@ -1353,7 +1353,7 @@ return [
     'you_are_here'                                                                     => 'أنت هنا',
     'have_a_ticket'                                                                    => 'هل قدمت طلب من قبل؟',
     'check_ticket_status'                                                              => 'إفحص وضع الطلب',
-    'choose_a_help_topic'                                                              => 'اختيار موضوع المساعدة',
+    'choose_a_help_topic'                                                              => 'اختيار موضوع الطلب',
     'ticket_status'                                                                    => 'حالة الطلب',
     'post_comment'                                                                     => 'أضف تعليقا',
     'plugin'                                                                           => 'إضافة',

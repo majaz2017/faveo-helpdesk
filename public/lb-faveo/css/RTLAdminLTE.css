@@ -440,7 +440,7 @@ a:focus {
 .content-header {
   position: relative;
   margin-right: 230px;
-  padding: 15px 15px 0 15px;
+  padding: 15px 15px 15px 15px;
 }
 .content-header > h1 {
   float: left;

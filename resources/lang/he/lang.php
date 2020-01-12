@@ -1353,7 +1353,7 @@ return [
     'you_are_here'                                                                     => 'אתה נמצא כאן',
     'have_a_ticket'                                                                    => 'הגשת פנייה קודם',
     'check_ticket_status'                                                              => 'בדוק סטטוס פנייה',
-    'choose_a_help_topic'                                                              => 'בחר מאמר עזרה',
+    'choose_a_help_topic'                                                              => 'בחר בנושא פנייה',
     'ticket_status'                                                                    => 'סטטוס פנייה',
     'post_comment'                                                                     => 'פרסם תגובה',
     'plugin'                                                                           => 'פלאגן',
