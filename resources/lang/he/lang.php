@@ -177,8 +177,8 @@ return [
     'email_banned_sucessfully'         => 'אימייל נאסר בהצלחה',
     'email_can_not_ban'                => 'לא ניתן לחסום אימייל זה',
     'banned_email_updated_sucessfully' => 'אימייל אסור עודכן בהצלחה',
-    'banned_email_not_updated'         => 'אימייל אסור לא עודכן',
-    'banned_removed_sucessfully'       => 'האיסור הוסר בהצלחה',
+    'banned_email_not_updated'         => 'אימייל חסום לא עודכן',
+    'banned_removed_sucessfully'       => 'החסימה הוסרה בהצלחה',
     /*
       |--------------------------------------
       |  Templates Index Page
@@ -996,8 +996,8 @@ return [
       |------------------------------------------------
      */
     'user_credentials'                                 => 'אישורי משתמשים',
-    'user_directory'                                   => 'מדריך למשתמש',
-    'ban'                                              => 'איסור',
+    'user_directory'                                   => 'רשימת משתמשים',
+    'ban'                                              => 'חסימה',
     'user'                                             => 'משתמש',
     'users'                                            => 'משתמשים',
     'create_user'                                      => 'צור משתמש',
