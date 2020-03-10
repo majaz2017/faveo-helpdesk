@@ -8,20 +8,26 @@ active
 
 @section('content')
 <div id="no-js">
-   <noscript>
+    <noscript>
         <meta http-equiv="refresh" content="0; URL=JavaScript-disabled">
-        <style type="text/css">#form-content {display: none;}</style>
+        <style type="text/css">
+            #form-content {
+                display: none;
+            }
+        </style>
     </noscript>
 </div>
-    
+
 <div id="form-content">
-<center><h1>Environment Test</h1></center>
-         @if (Session::has('fail_to_change'))
-           <div class="woocommerce-message woocommerce-tracker" >
-                <p id="fail">{!!Session::get('fail_to_change')!!}</p>
-            </div>
-         @endif
-<?php
+    <center>
+        <h1>Environment Test</h1>
+    </center>
+    @if (Session::has('fail_to_change'))
+    <div class="woocommerce-message woocommerce-tracker">
+        <p id="fail">{!!Session::get('fail_to_change')!!}</p>
+    </div>
+    @endif
+    <?php
 define('PROBE_VERSION', '1.0');
 define('PROBE_FOR', 'Faveo HELPDESK '. Config::get('app.version').' and Newer');
 define('STATUS_OK', 'Ok');
@@ -38,25 +44,26 @@ class TestResult {
 }
 ?>
 
-<div id="wrapper">
-    <h1>Probe</h1>
+    <div id="wrapper">
+        <h1>Probe</h1>
 
         <b>Probe Version:</b>
         <?php echo PROBE_VERSION?>
         <br>
         <b>Testing For:</b>
         <?php echo PROBE_FOR?>
-        <br/>
-        <br/>
-    This test will check prerequisites required to install Faveo
-    
-    <br/><br/>
-    <p>NOTE:&nbsp;FAVEO doesn't work properly without JavaScript.  In order to install and run FAVEO to its full extent please make sure JavaScript is enabled in your browser.</p>
-     <?php
+        <br />
+        <br />
+        This test will check prerequisites required to install Faveo
+
+        <br /><br />
+        <p>NOTE:&nbsp;FAVEO doesn't work properly without JavaScript. In order to install and run FAVEO to its full
+            extent please make sure JavaScript is enabled in your browser.</p>
+        <?php
 
 function validate_php(&$results) {
     if (version_compare(PHP_VERSION, '7.1.3') == -1) {
-        $results[] = new TestResult('PHP version required in order to run Faveo HELPDESK is PHP 7.1.3 or greater. Your PHP version: ' . PHP_VERSION, STATUS_ERROR);
+        $results[] = new TestResult('PHP version required in order to run Crm Alexor is PHP 7.1.3 or greater. Your PHP version: ' . PHP_VERSION, STATUS_ERROR);
         return false;
     } else {
         $results[] = new TestResult('Your PHP version is ' . PHP_VERSION, STATUS_OK);
@@ -189,20 +196,20 @@ function validate_extensions(&$results) {
         if (extension_loaded($required_extension)) {
             $results[] = new TestResult("Required extension '$required_extension' found", STATUS_OK);
         } else {
-            $results[] = new TestResult("Extension '$required_extension' is required in order to run Faveo Helpdesk ", STATUS_ERROR);
+            $results[] = new TestResult("Extension '$required_extension' is required in order to run Crm Alexor ", STATUS_ERROR);
             $ok = false;
         } // if
     } // foreach
 
     // Check for eAccelerator
     if (extension_loaded('eAccelerator') && ini_get('eaccelerator.enable')) {
-        $results[] = new TestResult("eAccelerator opcode cache enabled. <span class=\"details\">eAccelerator opcode cache causes Faveo Helpdesk to crash. <a href=\"https://eaccelerator.net/wiki/Settings\">Disable it</a> for folder where Faveo Helpdesk is installed, or use APC instead: <a href=\"http://www.php.net/apc\">http://www.php.net/apc</a>.</span>", STATUS_ERROR);
+        $results[] = new TestResult("eAccelerator opcode cache enabled. <span class=\"details\">eAccelerator opcode cache causes Crm Alexor to crash. <a href=\"https://eaccelerator.net/wiki/Settings\">Disable it</a> for folder where Crm Alexor is installed, or use APC instead: <a href=\"http://www.php.net/apc\">http://www.php.net/apc</a>.</span>", STATUS_ERROR);
         $ok = false;
     } // if
 
     // Check for XCache
     if (extension_loaded('XCache') && ini_get('xcache.cacher')) {
-        $results[] = new TestResult("XCache opcode cache enabled. <span class=\"details\">XCache opcode cache causes Faveo Helpdesk to crash. <a href=\"http://xcache.lighttpd.net/wiki/XcacheIni\">Disable it</a> for folder where Faveo Helpdesk is installed, or use APC instead: <a href=\"http://www.php.net/apc\">http://www.php.net/apc</a>.</span>", STATUS_ERROR);
+        $results[] = new TestResult("XCache opcode cache enabled. <span class=\"details\">XCache opcode cache causes Crm Alexor to crash. <a href=\"http://xcache.lighttpd.net/wiki/XcacheIni\">Disable it</a> for folder where Crm Alexor is installed, or use APC instead: <a href=\"http://www.php.net/apc\">http://www.php.net/apc</a>.</span>", STATUS_ERROR);
         $ok = false;
     } // if
 
@@ -242,7 +249,7 @@ function checkDisabledFunctions(&$results) {
         foreach ($required_functions as $value) {
             if($key == $value) {
                 if (strpos(ini_get('disable_functions'), $key) !== false) {
-                    $results[] = new TestResult("Function '$value' is required in order to run Faveo Helpdesk. Please check php.ini to enable this function or contact your server administrator", STATUS_ERROR);
+                    $results[] = new TestResult("Function '$value' is required in order to run Crm Alexor. Please check php.ini to enable this function or contact your server administrator", STATUS_ERROR);
                     $ok = false;
                 } else {
                     $results[] = new TestResult("All required functions found", STATUS_OK);
@@ -277,53 +284,56 @@ $file_permission = checkFilePermission($results);
 $required_functions = checkDisabledFunctions($results);
 $check_execution_time = checkMaxExecutiontime($results);
 ?>
-<p class="setup-actions step">
-<?php 
+        <p class="setup-actions step">
+            <?php 
 foreach ($results as $result) {
     print '<span class="' . strtolower($result->status) . '">' . $result->status . '</span> &mdash; ' . $result->message . '<br/>';
 } // foreach
 ?>
-</p>
-<?php
+        </p>
+        <?php
 if ($php_ok && $memory_ok && $extensions_ok && $file_permission && $required_functions && $check_execution_time) {
     ?>
-</div>  
+    </div>
 
-            <div class="woocommerce-message woocommerce-tracker" >
-                <p id="pass">OK, this system can run Faveo</p>
-            </div>
+    <div class="woocommerce-message woocommerce-tracker">
+        <p id="pass">OK, this system can run Faveo</p>
+    </div>
 
 
-    <form action="{{URL::route('postprerequisites')}}" method="post"  class="border-line">
+    <form action="{{URL::route('postprerequisites')}}" method="post" class="border-line">
         {{ csrf_field() }}
         <p class="setup-actions step">
             <input type="submit" id="submitme" class="button-primary button button-large button-next" value="Continue">
             <a href="{!! route('licence') !!}" class="button button-large button-next" style="float: left">Previous</a>
         </p>
     </form>
-</br>
+    </br>
     <?php
 } else {
 
-    ?></div><br>
-            
-            <div class="woocommerce-message woocommerce-tracker" >
-                <p id="fail">This system does not meet Faveo system requirements</p>
-            </div>
+    ?>
+</div><br>
+
+<div class="woocommerce-message woocommerce-tracker">
+    <p id="fail">This system does not meet Faveo system requirements</p>
+</div>
 <p class="setup-actions step">
-    <a href="{{URL::route('licence')}}" style="float: left"><button value="prev" class="button-primary button button-large">Previous</button></a>
+    <a href="{{URL::route('licence')}}" style="float: left"><button value="prev"
+            class="button-primary button button-large">Previous</button></a>
     <button disabled="" class="button-primary button button-large button-next" style="float: right">Continue</button>
 </p> <?php
 }
 ?>
 
 <div id="legend">
-        {{-- <ul> --}}
-          <p><span class="ok">Ok</span> &mdash; All Ok<br/>
-          <span class="warning">Warning</span> &mdash; Not a deal breaker, but it's recommended to have this installed for some features to work<br/>
-          <span class="error">Error</span> &mdash; Faveo HELPDESK require this feature and can't work without it</p>
-        {{-- </ul> --}}
-      </div>
+    {{-- <ul> --}}
+    <p><span class="ok">Ok</span> &mdash; All Ok<br />
+        <span class="warning">Warning</span> &mdash; Not a deal breaker, but it's recommended to have this installed for
+        some features to work<br />
+        <span class="error">Error</span> &mdash; Crm Alexor require this feature and can't work without it</p>
+    {{-- </ul> --}}
+</div>
 </div>
 </div>
 @stop
