@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Faveo HELPDESK</title>
+        <title>Crm Alexor</title>
         <link href="{{asset("lb-faveo/media/images/favicon.ico")}}"  rel="shortcut icon" />
         <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery.ui.css" rel="stylesheet" />
         <link href="{{asset("lb-faveo/css/load-styles.css")}}" rel="stylesheet" type="text/css" />
