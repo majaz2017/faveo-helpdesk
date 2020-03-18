@@ -177,8 +177,8 @@ return [
     'email_banned_sucessfully'         => 'אימייל נאסר בהצלחה',
     'email_can_not_ban'                => 'לא ניתן לחסום אימייל זה',
     'banned_email_updated_sucessfully' => 'אימייל אסור עודכן בהצלחה',
-    'banned_email_not_updated'         => 'אימייל אסור לא עודכן',
-    'banned_removed_sucessfully'       => 'האיסור הוסר בהצלחה',
+    'banned_email_not_updated'         => 'אימייל חסום לא עודכן',
+    'banned_removed_sucessfully'       => 'החסימה הוסרה בהצלחה',
     /*
       |--------------------------------------
       |  Templates Index Page
@@ -996,8 +996,8 @@ return [
       |------------------------------------------------
      */
     'user_credentials'                                 => 'אישורי משתמשים',
-    'user_directory'                                   => 'מדריך למשתמש',
-    'ban'                                              => 'איסור',
+    'user_directory'                                   => 'רשימת משתמשים',
+    'ban'                                              => 'חסימה',
     'user'                                             => 'משתמש',
     'users'                                            => 'משתמשים',
     'create_user'                                      => 'צור משתמש',
@@ -1353,7 +1353,7 @@ return [
     'you_are_here'                                                                     => 'אתה נמצא כאן',
     'have_a_ticket'                                                                    => 'הגשת פנייה קודם',
     'check_ticket_status'                                                              => 'בדוק סטטוס פנייה',
-    'choose_a_help_topic'                                                              => 'בחר מאמר עזרה',
+    'choose_a_help_topic'                                                              => 'בחר בנושא פנייה',
     'ticket_status'                                                                    => 'סטטוס פנייה',
     'post_comment'                                                                     => 'פרסם תגובה',
     'plugin'                                                                           => 'פלאגן',

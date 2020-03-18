@@ -49,7 +49,7 @@ return [
     'email_address'                          => 'البريد الإلكتروني',
     'password'                               => 'كلمة السر',
      'password_confirmation'                 => 'تأكيد كلمة السر',
-    'woops'                                  => 'Whoops!',
+    'woops'                                  => '!عذرًا',
     'theirisproblem'                         => 'كانت هناك بعض المشاكل مع المدخلات الخاصة بك.',
     'e-mail'                                 => 'البريد الإلكتروني',
     'reg_new_member'                         => 'تسجيل عضوية جديدة',
@@ -63,8 +63,8 @@ return [
     'otp-sent'                               => 'We\'ve sent an OTP code on your number.',
     'verify-number'                          => 'Verify number',
     'get-verify-message'                     => 'Enter the OTP code we\'ve sent to your new number.',
-    'number-verification-sussessfull'        => 'Your number has been verified successfully, please wait we are updating your profile.',
-     'enter_your_email_here'                 => 'Enter Your Email Here',
+    'number-verification-sussessfull'        => 'تم التحقق من رقمك بنجاح ، يرجى الانتظار حتى يتم تحديث ملفك الشخصي.',
+     'enter_your_email_here'                 => 'أدخل بريدك الإلكتروني هنا',
     /*
       |--------------------------------------
       |   Register Page
@@ -142,7 +142,7 @@ return [
     'no'                                                                               => 'لا',
     'header_spoofing'                                                                  => 'Header spoofing',
     'allow_for_this_email'                                                             => 'السماح لهذا البريد الإلكتروني',
-    'imap_config'                                                                      => 'IMAP configuration',
+    'imap_config'                                                                      => 'IMAP إعدادات',
     'email_information_and_settings'                                                   => 'معلومات البريد الإلكتروني والإعدادات',
     'incoming_email_information'                                                       => 'معلومات البريد الإلكتروني الوارد',
     'outgoing_email_information'                                                       => 'معلومات البريد الإلكتروني الصادرة',
@@ -159,8 +159,8 @@ return [
     'incoming_email_connection_failed_please_check_email_credentials_or_imap_settings' => 'Incoming email connection failed! Please check email credentials or Imap Settings',
     'outgoing_email_connection_failed'                                                 => 'Outgoing email connection failed',
     'you_cannot_delete_system_default_email'                                           => 'You cannot delete system default email',
-    'email_deleted_sucessfully'                                                        => 'Email deleted sucessfully',
-    'email_can_not_delete'                                                             => 'Email can not delete',
+    'email_deleted_sucessfully'                                                        => 'تم حذف البريد الإلكتروني بنجاح',
+    'email_can_not_delete'                                                             => 'لا يمكن حذف البريد الإلكتروني',
     'outgoing_email_failed'                                                            => 'Outgoing email failed',
     'system-email-not-configured'                                                      => 'System could not send emails to users as it does not have the email configured to send outgoing mails. Please contact and report system admin.',
     /*
@@ -173,12 +173,12 @@ return [
     'ban_status'                       => 'وضع الحضر',
     'list_of_banned_emails'            => 'قائمة الإيميلات المحضورة',
     'edit_banned_email'                => 'تحرير البريد المحضور',
-    'create_a_banned_email'            => 'Create a banned email',
+    'create_a_banned_email'            => 'إنشاء بريد إلكتروني محضور',
     'email_banned_sucessfully'         => 'تم حضر الإيميل بنجاح',
-    'email_can_not_ban'                => 'Email can not ban',
-    'banned_email_updated_sucessfully' => 'Banned email updated sucessfully',
-    'banned_email_not_updated'         => 'Banned email not updated',
-    'banned_removed_sucessfully'       => 'Banned removed sucessfully',
+    'email_can_not_ban'                => 'لا يمكن حضر البريد الإلكتروني',
+    'banned_email_updated_sucessfully' => 'تم تحديث البريد الإلكتروني المحضور بنجاح',
+    'banned_email_not_updated'         => 'تم تحديث البريد الإلكتروني المحضور',
+    'banned_removed_sucessfully'       => 'تم حذف البريد الإلكتروني المحضور بنجاح',
     /*
       |--------------------------------------
       |  Templates Index Page
@@ -373,12 +373,12 @@ return [
     'allow_client_updates'                => 'Allow client updates',
     'lock_ticket_frequency'               => 'Lock tickets',
     'only-once'                           => 'فقط لمرة واحدة',
-    'frequently'                          => 'Frequently',
-    'reload-now'                          => 'Reload now',
+    'frequently'                          => ' مِراراً',
+    'reload-now'                          => 'إعادة تحميل',
     'ticket-lock-inactive'                => 'You have been inactive for a while. Please reload the page.',
     'make-system-default-mail'            => 'Make this email system\'s default email',
-    'thread'                              => 'Thread',
-    'labels'                              => 'Labels',
+    'thread'                              => 'سلسلة',
+    'labels'                              => 'تسميات',
     /*
       |--------------------------------------
       |   Access Settings Page
@@ -412,11 +412,11 @@ return [
     'submitter'                             => 'المرسل : ',
     'send_receipt_confirmation'             => 'أرسل تأكيد الإستقبال',
     'participants'                          => 'المشتركون : ',
-    'send_new_activity_notice'              => 'Send new activity notice',
-    'overlimit_notice'                      => 'Overlimit notice',
-    'email_attachments_to_the_user'         => 'Email attachments to the user',
-    'auto_response_updated_successfully'    => 'Auto response updated successfully',
-    'auto_response_can_not_updated'         => 'Auto response can not be updated',
+    'send_new_activity_notice'              => 'إرسال إشعار نشاط جديد',
+    'overlimit_notice'                      => 'إشعار تجاوز الحد',
+    'email_attachments_to_the_user'         => 'مرفقات البريد الإلكتروني للمستخدم',
+    'auto_response_updated_successfully'    => 'تم تحديث الرد التلقائي بنجاح',
+    'auto_response_can_not_updated'         => 'لا يمكن تحديث الرد التلقائي',
 
     /*
       |--------------------------------------
@@ -443,11 +443,11 @@ return [
     'system_alerts'                                         => 'إنذارات النظام',
     'system_errors'                                         => 'أخطاء النظام',
     'SQL_errors'                                            => 'SQL errors',
-    'excessive_failed_login_attempts'                       => 'Excessive failed login attempts',
+    'excessive_failed_login_attempts'                       => 'محاولات دخول خاطئة كثيرة',
     'system_error_reports'                                  => 'تقارير أخطاء النظام',
     'Send_app_crash_reports_to_help_Ladybird_improve_Faveo' => 'Send app crash reports to help Ladybird improve Faveo',
-    'alert_&_notices_updated_successfully'                  => 'Alert and notices updated successfully',
-    'alert_&_notices_can_not_updated'                       => 'Alert and notices can not be updated',
+    'alert_&_notices_updated_successfully'                  => 'تم تحديث التنبيه والإشعارات بنجاح',
+    'alert_&_notices_can_not_updated'                       => 'لا يمكن تحديث التنبيهات والإشعارات',
 
     /*
       |-----------------------------------------------
@@ -505,7 +505,7 @@ return [
     'plugins-list'          => 'قائمة الإضافات',
     'plugin-exists'         => 'الإضافة موجودة من قبل',
     'plugin-installed'      => 'تم تثبيت الإضافة بنجاح.',
-    'plugin-path-missing'   => 'Plugin file path is not exist',
+    'plugin-path-missing'   => 'مسار ملف الإضافة غير موجود',
     'no-plugin-file'        => 'لا يوجد ',
     'plugin-config-missing' => 'Their is no <b>config.php or ServiceProvider.php</b>',
     'plugin-info'           => 'Are you a coder? We encourage you to write your own plugins and make\'em available for the community.',
@@ -563,13 +563,13 @@ return [
     'select_a_sla_plan'                     => 'إختر إتفاقية مستوى الخدمة',
     'sla_plans'                             => 'اتفاقيات مستوى الخدمة',
     'select_an_agent'                       => 'إختر عميل',
-    'helptopic_created_successfully'        => 'Help topic created successfully',
-    'helptopic_can_not_create'              => 'Help topic can not be created',
-    'helptopic_updated_successfully'        => 'Help topic updated successfully',
-    'helptopic_can_not_update'              => 'Help topic can not be updated',
-    'you_cannot_delete_default_department'  => 'You cannot delete default department',
-    'have_been_moved_to_default_help_topic' => 'have been moved to default help topic',
-    'helptopic_deleted_successfully'        => 'Helptopic deleted successfully',
+    'helptopic_created_successfully'        => 'تم إنشاء موضوع المساعدة بنجاح',
+    'helptopic_can_not_create'              => 'لا يمكن إنشاء موضوع المساعدة',
+    'helptopic_updated_successfully'        => 'تم تحديث موضوع المساعدة بنجاح',
+    'helptopic_can_not_update'              => 'لا يمكن تحديث موضوع المساعدة',
+    'you_cannot_delete_default_department'  => 'لا يمكنك حذف القسم الافتراضي',
+    'have_been_moved_to_default_help_topic' => 'تم نقلها إلى موضوع التعليمات الافتراضي',
+    'helptopic_deleted_successfully'        => 'تم حذف  موضوع المساعدة بنجاح',
     'make-default-helptopic'                => 'Make system\'s default help topic',
     /*
       |--------------------------------------
@@ -1353,7 +1353,7 @@ return [
     'you_are_here'                                                                     => 'أنت هنا',
     'have_a_ticket'                                                                    => 'هل قدمت طلب من قبل؟',
     'check_ticket_status'                                                              => 'إفحص وضع الطلب',
-    'choose_a_help_topic'                                                              => 'اختيار موضوع المساعدة',
+    'choose_a_help_topic'                                                              => 'اختيار موضوع الطلب',
     'ticket_status'                                                                    => 'حالة الطلب',
     'post_comment'                                                                     => 'أضف تعليقا',
     'plugin'                                                                           => 'إضافة',
@@ -1404,56 +1404,56 @@ return [
      * --------------------------------------------------------------------------
      *
      */
-    'error-debug'                        => 'Error logs and debugging',
-    'debug-options'                      => 'Debugging options',
-    'view-logs'                          => 'View error logs',
+    'error-debug'                        => 'سجلات الأخطاء والتصحيح',
+    'debug-options'                      => 'إمكانيات تصحيح الأخطاء',
+    'view-logs'                          => 'عرض سجلات الأخطاء',
     'not-authorised-error-debug'         => 'You are not authorised to access the URL',
-    'error-debug-settings'               => 'Error and debugging settings',
-    'debugging'                          => 'Debugging mode',
+    'error-debug-settings'               => 'إعدادات الأخطاء والتصحيح',
+    'debugging'                          => 'وضح تصحيح الأخطاء',
     'bugsnag-debugging'                  => 'Send app crash reports to help Ladybird improve Faveo',
     'error-debug-settings-saved-message' => 'Your error and debugging settings have been saved successfully',
     'error-debug-settings-error-message' => 'You have not made any change in the settings.',
-    'error-logs'                         => 'Error logs',
+    'error-logs'                         => 'سجلات الأخطاء',
     /* ---------------------------------------------------------------------------------------
      * Latest update 16-06-2016
      * -----------------------------------------------------------------------------------
      */
-    'that_email_is not_available_in_this_system' => 'That Email is not available in this System',
+    'that_email_is not_available_in_this_system' => 'هذا البريد غير متوفر في النظام',
     'use_subject'                                => 'Use Subject',
-    'reopen'                                     => 'Reopen',
-    'invalid_attempt'                            => 'Invalid Attempt',
+    'reopen'                                     => 'إعادة فتح',
+    'invalid_attempt'                            => 'محاولة خاطئة',
     /* ---------------------------------------------------------------------------------------
      * Latest update 27-07-2016
      * -----------------------------------------------------------------------------------
      */
-    'queue'  => 'Queue',
-    'queues' => 'Queues',
+    'queue'  => 'طابور',
+    'queues' => 'طوابير',
     /*     * -------------------------------------------------------------------------------------------------
      * OTP  messages body to send to user while registering, resetting passwords
      * --------------------------------------------------------------------------------------------------
      */
-    'hello'                   => 'Hello',
+    'hello'                   => 'مرحبا',
     'reset-link-msg'          => ",\r\nHere is the link to reset your password.\r\n",
     'otp-for-your'            => ",\r\nOTP for your",
-    'account-verification-is' => 'account verification is',
+    'account-verification-is' => 'التحقق من الحساب هو',
     'extra-text'              => ".\r\nYou can login to verify your account via OTP or just click on the link we've sent to your email address.",
     'otp-not-sent'            => 'We faced some problem in sending OTP please try after some time.',
     /*     * -------------------------------------------------------------------------------------------
      * Ticket number settings 03-08-2016
      * ------------------------------------------------------------------------------------------
      */
-    'format'               => 'Format',
+    'format'               => 'صيغة',
     'ticket-number-format' => 'This setting is used to generate ticket numbers. Use hash signs (`#`) where digits are to be placed & dollar sign(‘$’) where characters are to be placed . Any other text in the number format will be preserved. ',
     'ticket-number-type'   => 'Choose a sequence from which to derive new ticket numbers. The system has a incrementing sequence and a random sequence by default',
     /*     * ----------------------------------------------------------------------------------------------------
      * Social media integration
      * ---------------------------------------------------------------------------------------------------------
      */
-    'client_id'     => 'Client id',
-    'client_secret' => 'Client secret',
-    'redirect'      => 'Redirect URL',
-    'details'       => 'Details',
-    'social-media'  => 'Social media',
+    'client_id'     => 'معرف العميل',
+    'client_secret' => 'سر العميل',
+    'redirect'      => 'إعادة توجيه URL',
+    'details'       => 'التفاصيل',
+    'social-media'  => 'وسائل التواصل الاجتماعي',
     /*     * ----------------------------------------------------------------------------------------------
      * Report
      * ----------------------------------------------------------------------------------------------
@@ -1525,7 +1525,7 @@ return [
       *Updated 6-9-2016
       *---------------------------------------------------------------------------------------
       */
-     'not-available'  => 'Not available',
+     'not-available'  => 'غير متوفر',
      /* --------------------------------------------------------------------------------------------
      * User Module
      * --------------------------------------------------------------------------------------------
@@ -1545,7 +1545,7 @@ return [
      'password_generator'                                           => 'مولد كلمة السر',
      'depertment'                                                   => 'قسم',
      'duetoday'                                                     => 'الاستحقاق اليوم',
-     'today-due_tickets'                                            => 'Today\'s due tickets',
+     'today-due_tickets'                                            => 'طلبات مستحقة اليوم',
      'password_change_successfully'                                 => 'تم تغيير كملة السر بنجاح',
      'role_change_successfully'                                     => 'تم تغيير الدور بنجاح',
      'user_delete_successfully'                                     => 'تم حذف المستخدم بنجاح',
@@ -1565,10 +1565,10 @@ return [
      'created-at'                   => 'أنشئت في',
      'or'                           => 'أو',
      'activate'                     => 'تفعيل',
-     'system-email-not-configured'  => 'System could not send emails to users as it does not have the email configured to send outgoing mails. Please contact and report system admin.',
-     'assign-ticket'                => 'Assign tickets',
-     'can-not-inactive-group'       => 'Can not make the group inactive as it has agents assigned in it. Please assign those agents to another group and try again.',
-     'internal-note-has-been-added' => 'Internal note added to the ticket',
+     'system-email-not-configured'  => 'تعذر على النظام إرسال رسائل بريد إلكتروني للمستخدمين لأنه لا يحوي تعريفات البريد الإلكتروني الخارج. الرجاء التواصل مع مدير النظام ',
+     'assign-ticket'                => 'طلبات مسندة',
+     'can-not-inactive-group'       => ' لا يمكن تغيير حالة المجموعة لغير نشطة لأن هناك عملاء مسندون للمجموعة. الرجاء إسناد العملاء لمجموعة أخرى ثم المحاولة مرة أخرى',
+     'internal-note-has-been-added' => 'تم إضافة ملاحظات داخلية للطلب',
      'active-users'                 => 'المستخدمين النشطين',
      'deleted-users'                => 'المستخدمين المحذوفين',
      'view-option'                  => 'خيارات العرض',
