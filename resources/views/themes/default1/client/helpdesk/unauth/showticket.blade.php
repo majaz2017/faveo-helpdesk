@@ -227,11 +227,11 @@ foreach ($conversations as $conversation) {
             } elseif ($attachment->type == 'docx') {
                 
             } else {
-               
+                
                 $image = @imagecreatefromstring($attachment->file);
-                if($attachment->type == 'jpg'||$attachment->type == 'JPG'||$attachment->type == 'jpeg'||$attachment->type == 'JPEG'||$attachment->type == 'png'||$attachment->type == 'PNG'||$attachment->type == 'gif'||$attachment->type == 'GIF')
-                                                {
-                   
+                if($attachment->type == 'image/jpg'||$attachment->type == 'image/JPG'||$attachment->type == 'image/jpeg'||$attachment->type == 'image/JPEG'||$attachment->type == 'image/png'||$attachment->type == 'image/PNG'||$attachment->type == 'image/gif'||$attachment->type == 'image/GIF')
+                {
+                    dd($attachment,$image );
                     ob_start();
                     imagejpeg($image, null, 80);
                     $data = ob_get_contents();
