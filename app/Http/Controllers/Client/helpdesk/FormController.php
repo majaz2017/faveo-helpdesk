@@ -229,7 +229,7 @@ class FormController extends Controller
     $thread   = Ticket_Thread::where('ticket_id', '=', $ticketId->id)->first();
     if ($attachments != null) {
      $storage = new \App\FaveoStorage\Controllers\StorageController();
-     $storage->saveAttachments($thread->id, $attachments);
+     $storage->saveAttachment($thread->id, $attachments);
      //                    foreach ($attachments as $attachment) {
      //                        if ($attachment != null) {
      //                            $name = $attachment->getClientOriginalName();
