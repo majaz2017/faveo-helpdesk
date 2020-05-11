@@ -229,26 +229,34 @@ foreach ($conversations as $conversation) {
             } else {
                
                 $image = @imagecreatefromstring($attachment->file);
-                ob_start();
-                imagejpeg($image, null, 80);
-                $data = ob_get_contents();
-                ob_end_clean();
-                $var = '<img src="data:image/jpg;base64,' . base64_encode($data) . '" />';
-                $body = str_replace($attachment->name, "data:image/jpg;base64," . base64_encode($data), $body);
+                if($attachment->type == 'jpg'||$attachment->type == 'JPG'||$attachment->type == 'jpeg'||$attachment->type == 'JPEG'||$attachment->type == 'png'||$attachment->type == 'PNG'||$attachment->type == 'gif'||$attachment->type == 'GIF')
+                                                {
+                   
+                    ob_start();
+                    imagejpeg($image, null, 80);
+                    $data = ob_get_contents();
+                    ob_end_clean();
+                    $var = '<img src="data:image/jpg;base64,' . base64_encode($data) . '" />';
+                    $body = str_replace($attachment->name, "data:image/jpg;base64," . base64_encode($data), $body);
 
-                $string = $body;
-                $start = "<head>";
-                $end = "</head>";
-                if (strpos($string, $start) == false || strpos($string, $start) == false) {
-                    
-                } else {
-                    $ini = strpos($string, $start);
-                    $ini += strlen($start);
-                    $len = strpos($string, $end, $ini) - $ini;
-                    $parsed = substr($string, $ini, $len);
-                    $body2 = $parsed;
-                    $body = str_replace($body2, " ", $body);
+                    $string = $body;
+                    $start = "<head>";
+                    $end = "</head>";
+                    if (strpos($string, $start) == false || strpos($string, $start) == false) {
+                        
+                    } else {
+                        $ini = strpos($string, $start);
+                        $ini += strlen($start);
+                        $len = strpos($string, $end, $ini) - $ini;
+                        $parsed = substr($string, $ini, $len);
+                        $body2 = $parsed;
+                        $body = str_replace($body2, " ", $body);
+                    }
+                } else{
+                    echo '<a href="'.URL::route('image', array('image_id' => $attachment->id)).'" target="_blank">'.$attachment->name.'</a>';
+                                               
                 }
+
             }
         }
     }
