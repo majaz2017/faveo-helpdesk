@@ -42,13 +42,23 @@
         <link href="{{asset("lb-faveo/css/editor.css")}}" rel="stylesheet" type="text/css" />
 
         <link href="{{asset("lb-faveo/css/jquery.ui.css")}}" rel="stylesheet" rel="stylesheet" />
+        <link href="{{asset("lb-faveo/plugins/datatables/DataTables-1.10.21/css/dataTables.bootstrap.css")}}"
+            rel="stylesheet" rel="stylesheet" />
+        <link href="{{asset("lb-faveo/plugins/datatables/DataTables-1.10.21/css/jquery.dataTables.min.css")}}"
+            rel="stylesheet" rel="stylesheet" />
+        <link href="{{asset("lb-faveo/plugins/datatables/buttons/1.6.2/css/buttons.bootstrap.css")}}" rel="stylesheet"
+            type="text/css" />
         @if($rtl->option_value)
         <link href="{{asset("lb-faveo/plugins/datatables/RTLdataTables.bootstrap.css")}}" rel="stylesheet"
             type="text/css" />
         @else
-        <link href="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.css")}}" rel="stylesheet"
-            type="text/css" />
+        <link href="{{asset("lb-faveo/plugins/datatables/datatables.min.css")}}" rel="stylesheet" type="text/css" />
+
         @endif
+        <link href="{{asset("lb-faveo/plugins/datatables/buttons/1.6.2/css/buttons.dataTables.min.css")}}"
+            rel="stylesheet" type="text/css" />
+        <link href="{{asset("lb-faveo/plugins/datatables/buttons/1.6.2/css/buttons.bootstrap.css")}}" rel="stylesheet"
+            type="text/css" />
         <link href="{{asset("lb-faveo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")}}" rel="stylesheet"
             type="text/css" />
 
@@ -67,14 +77,17 @@
         <!--calendar -->
         <!-- fullCalendar 2.2.5-->
         <link href="{{asset('lb-faveo/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <script src="{{asset("lb-faveo/js/jquery-2.1.4.js")}}" type="text/javascript"></script>
+        <script src="{{asset("lb-faveo/js/jquery-3.3.1.js")}}" type="text/javascript"></script>
 
-        <script src="{{asset("lb-faveo/js/jquery2.1.1.min.js")}}" type="text/javascript"></script>
+
+
 
         @yield('HeadInclude')
         <style type="text/css">
@@ -145,8 +158,8 @@
                                 <li @yield('Tools')><a data-target="#tabD" href="#">{!! Lang::get('lang.tools') !!}</a>
                                 </li>
                                 @if($auth_user_role == 'admin')
-                                <li @yield('Report')><a href="{{URL::route('report.index')}}"
-                                        onclick="clickReport(event);">Report</a></li>
+                                <li @yield('Report')><a data-target="#tabE" href="{{URL::route('report.index')}}"
+                                        onclick="clickReport(event);">{!! Lang::get('lang.report') !!}</a></li>
                                 @endif
                                 <?php \Event::fire('calendar.topbar', array()); ?>
                             </ul>
@@ -477,8 +490,12 @@ $group = App\Model\helpdesk\Agent\Groups::where('id', '=', $agent_group)->first(
                                     </ul>
                                 </div>
                                 @if($auth_user_role == 'admin')
-                                <div class="tabs-pane @yield('report-bar')" id="tabD">
+                                <div class="tabs-pane @yield('report-bar')" id="tabE">
                                     <ul class="nav navbar-nav">
+                                        <li id="bar" @yield('report')><a href="{{ url('/report')}}">{!!
+                                                Lang::get('lang.report') !!}</a></li>
+                                        <li id="bar" @yield('report')><a href="{{ url('/details-report')}}">{!!
+                                                Lang::get('lang.report_details') !!}</a></li>
                                     </ul>
                                 </div>
                                 @endif
@@ -537,7 +554,7 @@ $group = App\Model\helpdesk\Agent\Groups::where('id', '=', $agent_group)->first(
             </div><!-- ./wrapper -->
 
             <script src="{{asset("lb-faveo/js/ajax-jquery.min.js")}}" type="text/javascript"></script>
-
+            <script src="{{asset("lb-faveo/plugins/moment/moment.js")}}" type="text/javascript"></script>
             <script src="{{asset("lb-faveo/js/bootstrap-datetimepicker4.7.14.min.js")}}" type="text/javascript">
             </script>
             <!-- Bootstrap 3.3.2 JS -->
@@ -554,22 +571,38 @@ $group = App\Model\helpdesk\Agent\Groups::where('id', '=', $agent_group)->first(
             <script src="{{asset("lb-faveo/plugins/iCheck/icheck.min.js")}}" type="text/javascript"></script>
             <!-- jquery ui -->
             <script src="{{asset("lb-faveo/js/jquery.ui.js")}}" type="text/javascript"></script>
-
-            <script src="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.js")}}" type="text/javascript">
+            <script src="{{asset("lb-faveo/plugins/datatables/JSZip-2.5.0/jszip.js")}}" type="text/javascript"></script>
+            <script src="{{asset("lb-faveo/plugins/datatables/pdfmake-0.1.36/pdfmake.min.js")}}" type="text/javascript">
+            </script>
+            <script src="{{asset("lb-faveo/plugins/datatables/pdfmake-0.1.36/vfs_fonts.js")}}" type="text/javascript">
             </script>
 
-            <script src="{{asset("lb-faveo/plugins/datatables/jquery.dataTables.js")}}" type="text/javascript"></script>
-            <!-- Page Script -->
-            <script src="{{asset("lb-faveo/js/jquery.dataTables1.10.10.min.js")}}" type="text/javascript"></script>
-
-            <script type="text/javascript" src="{{asset("lb-faveo/plugins/datatables/dataTables.bootstrap.js")}}"
+            <script src="{{asset("lb-faveo/plugins/datatables/DataTables-1.10.21/js/jquery.dataTables.min.js")}}"
                 type="text/javascript"></script>
+
+            <script src="{{asset("lb-faveo/plugins/datatables/DataTables-1.10.21/js/dataTables.bootstrap.js")}}"
+                type="text/javascript"></script>
+            <script src="{{asset("lb-faveo/plugins/datatables/buttons-1.6.2/js/buttons.print.js")}}"
+                type="text/javascript">
+            </script>
+            <script src="{{asset("lb-faveo/plugins/datatables/Buttons-1.6.2/js/dataTables.buttons.js")}}"
+                type="text/javascript">
+            </script>
+            <script src="{{asset("lb-faveo/plugins/datatables/buttons-1.6.2/js/buttons.bootstrap.js")}}"
+                type="text/javascript">
+            </script>
+            <script src="{{asset("lb-faveo/plugins/datatables/buttons-1.6.2/js/buttons.html5.min.js")}}"
+                type="text/javascript">
+            </script>
+
+
+
 
             <script src="{{asset("lb-faveo/js/jquery.rating.pack.js")}}" type="text/javascript"></script>
 
             <script src="{{asset("lb-faveo/plugins/select2/select2.full.min.js")}}" type="text/javascript"></script>
 
-            <script src="{{asset("lb-faveo/plugins/moment/moment.js")}}" type="text/javascript"></script>
+
 
             <!-- full calendar-->
             <script src="{{asset('lb-faveo/plugins/fullcalendar/fullcalendar.min.js')}}" type="text/javascript">
@@ -697,6 +730,7 @@ $group = App\Model\helpdesk\Agent\Groups::where('id', '=', $agent_group)->first(
             </script>
             <?php Event::fire('show.calendar.script', array()); ?>
             <?php Event::fire('load-calendar-scripts', array()); ?>
+            @yield('dataTable')
             @yield('FooterInclude')
         </body>
 

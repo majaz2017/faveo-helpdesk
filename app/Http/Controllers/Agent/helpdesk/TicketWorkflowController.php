@@ -15,6 +15,7 @@ use App\Model\helpdesk\Ticket\Ticket_Status;
 use App\Model\helpdesk\Workflow\WorkflowAction;
 use App\Model\helpdesk\Workflow\WorkflowName;
 use App\Model\helpdesk\Workflow\WorkflowRules;
+use Illuminate\Support\Facades\Log;
 use App\User;
 
 /**
@@ -40,10 +41,10 @@ class TicketWorkflowController extends Controller
      *
      * @return type response
      */
-    public function workflow($fromaddress, $fromname, $subject, $body, $phone, $phonecode, $mobile_number, $helptopic, $sla, $priority, $source, $collaborator, $dept, $assign, $team_assign, $ticket_status, $form_data, $auto_response)
+    public function workflow($fromaddress, $fromname, $subject, $body, $phone, $phonecode, $mobile_number, $helptopic, $sla, $priority, $source, $collaborator, $dept, $assign, $team_assign, $ticket_status, $form_data, $auto_response, $latitude, $longitude)
     {
         $contact_details = ['email' => $fromaddress, 'email_name' => $fromname, 'subject' => $subject, 'message' => $body];
-        $ticket_settings_details = ['help_topic' => $helptopic, 'sla' => $sla, 'priority' => $priority, 'source' => $source, 'dept' => $dept, 'assign' => $assign, 'team' => $team_assign, 'status' => $ticket_status, 'reject' => false];
+        $ticket_settings_details = ['help_topic' => $helptopic, 'sla' => $sla, 'priority' => $priority, 'source' => $source, 'dept' => $dept, 'assign' => $assign, 'team' => $team_assign, 'status' => $ticket_status, 'reject' => false, 'latitude' => $latitude, 'longitude' => $longitude];
         // get all the workflow common to the entire system which includes any type of ticket creation where the execution order of the workflow should be starting with ascending order
         $workflows = WorkflowName::where('target', '=', 'A-0')->where('status', '=', '1')->orderBy('order', 'asc')->get();
         foreach ($workflows as $workflow) {
@@ -171,7 +172,7 @@ class TicketWorkflowController extends Controller
         if ($ticket_settings_details['reject'] == true) {
             return ['0' => false, '1' => false];
         } else {
-            $create_ticket = $this->TicketController->create_user($contact_details['email'], $contact_details['email_name'], $contact_details['subject'], $contact_details['message'], $phone, $phonecode, $mobile_number, $ticket_settings_details['help_topic'], $ticket_settings_details['sla'], $ticket_settings_details['priority'], $source, $collaborator, $ticket_settings_details['dept'], $ticket_settings_details['assign'], $form_data, $auto_response, $ticket_settings_details['status']);
+            $create_ticket = $this->TicketController->create_user($contact_details['email'], $contact_details['email_name'], $contact_details['subject'], $contact_details['message'], $phone, $phonecode, $mobile_number, $ticket_settings_details['help_topic'], $ticket_settings_details['sla'], $ticket_settings_details['priority'], $source, $collaborator, $ticket_settings_details['dept'], $ticket_settings_details['assign'], $form_data, $auto_response, $ticket_settings_details['status'], $ticket_settings_details['latitude'], $ticket_settings_details['longitude']);
 
             return $create_ticket;
         }
@@ -201,11 +202,11 @@ class TicketWorkflowController extends Controller
         } elseif ($condition == 'ends') {
             $return = $this->checkEnds($statement, $to_check);
         }
-//        elseif($condition == 'match') {
-//
-//        } elseif($condition == 'not_match') {
-//
-//        }
+        //        elseif($condition == 'match') {
+        //
+        //        } elseif($condition == 'not_match') {
+        //
+        //        }
         return $return;
     }
 
@@ -312,15 +313,15 @@ class TicketWorkflowController extends Controller
         }
     }
 
-//    function startsWith($to_check, $statement) {
-//        // search backwards starting from haystack length characters from the end
-//        return $statement === "" || strrpos($to_check, $statement, -strlen($to_check)) !== false;
-//    }
+    //    function startsWith($to_check, $statement) {
+    //        // search backwards starting from haystack length characters from the end
+    //        return $statement === "" || strrpos($to_check, $statement, -strlen($to_check)) !== false;
+    //    }
 
-//    function endsWith($to_check, $statement) {
-//        // search forward starting from end minus needle length characters
-//        return $statement === "" || (($temp = strlen($to_check) - strlen($statement)) >= 0 && strpos($to_check, $statement, $temp) !== false);
-//    }
+    //    function endsWith($to_check, $statement) {
+    //        // search forward starting from end minus needle length characters
+    //        return $statement === "" || (($temp = strlen($to_check) - strlen($statement)) >= 0 && strpos($to_check, $statement, $temp) !== false);
+    //    }
 
     /**
      * function to apply the action to a ticket.

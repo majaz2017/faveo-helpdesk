@@ -724,6 +724,8 @@ class ComposerStaticInit598add4b9b35c76d3599603201ccdd6d
         'AddForeignKeysToTicketsTable' => __DIR__ . '/../..' . '/database/migrations/2016_02_16_140454_add_foreign_keys_to_tickets_table.php',
         'AddForeignKeysToUserAssignOrganizationTable' => __DIR__ . '/../..' . '/database/migrations/2016_02_16_140454_add_foreign_keys_to_user_assign_organization_table.php',
         'AddForeignKeysToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_02_16_140454_add_foreign_keys_to_users_table.php',
+        'AddGeioLocationToTicket' => __DIR__ . '/../..' . '/database/migrations/2020_05_17_101651_add_geio_location_to_ticket.php',
+        'AddUseGeioToHelpTopic' => __DIR__ . '/../..' . '/database/migrations/2020_05_17_111136_add_use_geio_to_help_topic.php',
         'Adobe_Font_Metrics' => __DIR__ . '/..' . '/phenx/php-font-lib/classes/Adobe_Font_Metrics.php',
         'AlterEmailsTableMakeUsernameColumnNullable' => __DIR__ . '/../..' . '/database/migrations/2018_08_13_075015_alter_emails_table_make_username_column_nullable.php',
         'AlterTicketSourceTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_16_104539_alter_ticket_source_table.php',

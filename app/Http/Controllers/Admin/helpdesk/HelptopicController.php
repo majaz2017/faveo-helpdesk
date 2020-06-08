@@ -15,6 +15,7 @@ use App\Model\helpdesk\Manage\Help_topic;
 use App\Model\helpdesk\Manage\Sla_plan;
 use App\Model\helpdesk\Settings\Ticket;
 use App\Model\helpdesk\Ticket\Ticket_Priority;
+use Illuminate\Support\Facades\Log;
 use App\User;
 // classes
 use DB;
@@ -105,6 +106,7 @@ class HelptopicController extends Controller
      */
     public function store(Help_topic $topic, HelptopicRequest $request)
     {
+        // log::emergency($request);
         try {
             if ($request->custom_form) {
                 $custom_form = $request->custom_form;
@@ -116,6 +118,7 @@ class HelptopicController extends Controller
             } else {
                 $auto_assign = null;
             }
+            //dd($topic, $request);
             /* Check whether function success or not */
             $topic->fill($request->except('custom_form', 'auto_assign'))->save();
             // $topics->fill($request->except('custom_form','auto_assign'))->save();
@@ -123,7 +126,7 @@ class HelptopicController extends Controller
             return redirect('helptopic')->with('success', Lang::get('lang.helptopic_created_successfully'));
         } catch (Exception $e) {
             /* redirect to Index page with Fails Message */
-            return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_create').'<li>'.$e->getMessage().'</li>');
+            return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_create') . '<li>' . $e->getMessage() . '</li>');
         }
     }
 
@@ -148,14 +151,14 @@ class HelptopicController extends Controller
             $topics = $topic->whereId($id)->first();
             $forms = $form->get();
             $slas = $sla->get();
+            $useGeo = $topics->useGeo;
             $priority = Ticket_Priority::where('status', '=', 1)->get();
             $sys_help_topic = \DB::table('settings_ticket')
-                                ->select('help_topic')
-                                ->where('id', '=', 1)->first();
-
-            return view('themes.default1.admin.helpdesk.manage.helptopic.edit', compact('priority', 'departments', 'topics', 'forms', 'agents', 'slas', 'sys_help_topic'));
+                ->select('help_topic')
+                ->where('id', '=', 1)->first();
+            return view('themes.default1.admin.helpdesk.manage.helptopic.edit', compact('priority', 'departments', 'topics', 'forms', 'agents', 'slas', 'sys_help_topic', 'useGeo'));
         } catch (Exception $e) {
-            return redirect('helptopic')->with('fails', '<li>'.$e->getMessage().'</li>');
+            return redirect('helptopic')->with('fails', '<li>' . $e->getMessage() . '</li>');
         }
     }
 
@@ -170,6 +173,7 @@ class HelptopicController extends Controller
      */
     public function update($id, Help_topic $topic, HelptopicUpdate $request)
     {
+        log::emergency($request);
         try {
             $topics = $topic->whereId($id)->first();
             if ($request->custom_form) {
@@ -186,6 +190,7 @@ class HelptopicController extends Controller
             $topics->fill($request->except('custom_form', 'auto_assign'))->save();
             $topics->custom_form = $custom_form;
             $topics->auto_assign = $auto_assign;
+            $topics->useGeo = $request->useGeo;
             $topics->save();
             if ($request->input('sys_help_tpoic') == 'on') {
                 \DB::table('settings_ticket')
@@ -196,7 +201,7 @@ class HelptopicController extends Controller
             return redirect('helptopic')->with('success', Lang::get('lang.helptopic_updated_successfully'));
         } catch (Exception $e) {
             /* redirect to Index page with Fails Message */
-            return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_update').'<li>'.$e->getMessage().'</li>');
+            return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_update') . '<li>' . $e->getMessage() . '</li>');
         }
     }
 
@@ -221,7 +226,7 @@ class HelptopicController extends Controller
                 } else {
                     $text_tickets = 'Ticket';
                 }
-                $ticket = '<li>'.$tickets.' '.$text_tickets.Lang::get('lang.have_been_moved_to_default_help_topic').' </li>';
+                $ticket = '<li>' . $tickets . ' ' . $text_tickets . Lang::get('lang.have_been_moved_to_default_help_topic') . ' </li>';
             } else {
                 $ticket = '';
             }
@@ -232,20 +237,20 @@ class HelptopicController extends Controller
                 } else {
                     $text_emails = 'Email';
                 }
-                $email = '<li>'.$emails.' System '.$text_emails.Lang::get('lang.have_been_moved_to_default_help_topic').' </li>';
+                $email = '<li>' . $emails . ' System ' . $text_emails . Lang::get('lang.have_been_moved_to_default_help_topic') . ' </li>';
             } else {
                 $email = '';
             }
-            $message = $ticket.$email;
+            $message = $ticket . $email;
             $topics = $topic->whereId($id)->first();
             /* Check whether function success or not */
             try {
                 $topics->delete();
                 /* redirect to Index page with Success Message */
-                return redirect('helptopic')->with('success', Lang::get('lang.helptopic_deleted_successfully').$message);
+                return redirect('helptopic')->with('success', Lang::get('lang.helptopic_deleted_successfully') . $message);
             } catch (Exception $e) {
                 /* redirect to Index page with Fails Message */
-                return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_update').'<li>'.$e->getMessage().'</li>');
+                return redirect('helptopic')->with('fails', Lang::get('lang.helptopic_can_not_update') . '<li>' . $e->getMessage() . '</li>');
             }
         }
     }

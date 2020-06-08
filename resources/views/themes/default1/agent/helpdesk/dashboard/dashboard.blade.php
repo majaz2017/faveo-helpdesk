@@ -36,7 +36,8 @@ class="active"
 </div>
 @endif
 <link type="text/css" href="{{asset("lb-faveo/css/bootstrap-datetimepicker4.7.14.min.css")}}" rel="stylesheet">
-{{-- <script src="{{asset("lb-faveo/dist/js/bootstrap-datetimepicker4.7.14.min.js")}}" type="text/javascript"></script> --}}
+{{-- <script src="{{asset("lb-faveo/dist/js/bootstrap-datetimepicker4.7.14.min.js")}}" type="text/javascript"></script>
+--}}
 <div class="row">
     <!-- <div class="col-md-3 col-sm-6 col-xs-12"> -->
     <div class="col-md-2" style="width:20%;">
@@ -45,7 +46,8 @@ class="active"
                 <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">{!! Lang::get('lang.inbox') !!}</span>
-                    <span class="info-box-number"><?php echo $tickets->count() ?> <small> {!! Lang::get('lang.tickets') !!}</small></span>
+                    <span class="info-box-number"><?php echo $tickets->count() ?> <small> {!! Lang::get('lang.tickets')
+                            !!}</small></span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </a>
@@ -57,7 +59,8 @@ class="active"
                 <span class="info-box-icon bg-orange"><i class="fa fa-user-times"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">{!! Lang::get('lang.unassigned') !!}</span>
-                    <span class="info-box-number">{{$unassigned->count() }} <small> {!! Lang::get('lang.tickets') !!}</small></span>
+                    <span class="info-box-number">{{$unassigned->count() }} <small> {!! Lang::get('lang.tickets')
+                            !!}</small></span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </a>
@@ -92,8 +95,8 @@ class="active"
     </div><!-- /.col -->
 
 
-     <div class="col-md-2" style="width:20%;">
-     <?php
+    <div class="col-md-2" style="width:20%;">
+        <?php
       if (Auth::user()->role == 'admin') {
             $todaytickets = App\Model\helpdesk\Ticket\Tickets::where('status', '=', 1)->whereDate('tickets.duedate','=', \Carbon\Carbon::now()->format('Y-m-d'))->count();
         } else {
@@ -101,7 +104,7 @@ class="active"
      $todaytickets = App\Model\helpdesk\Ticket\Tickets::where('status', '=', 1)->whereDate('tickets.duedate','=', \Carbon\Carbon::now()->format('Y-m-d'))->where('dept_id', '=', $dept->id)->count();
         }
       ?>
-                 <a href="{!! route('ticket.duetoday') !!}">
+        <a href="{!! route('ticket.duetoday') !!}">
             <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="glyphicon glyphicon-eye-open"></i></span>
                 <div class="info-box-content">
@@ -110,8 +113,8 @@ class="active"
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </a>
-          <!-- /.info-box -->
-        </div>
+        <!-- /.info-box -->
+    </div>
 
 </div>
 <div class="box box-info">
@@ -120,10 +123,10 @@ class="active"
     </div>
     <div class="box-body">
         <form id="foo">
-            <div  class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <div class='col-sm-2'>
-                        {!! Form::label('date', 'Start Date:',['class' => 'lead']) !!}
+                        {!! Form::label('date', Lang::get('lang.start_date'),['class' => 'lead']) !!}
                         {!! Form::text('start_date',null,['class'=>'form-control','id'=>'datepicker4'])!!}
                     </div>
                     <?php
@@ -150,7 +153,7 @@ class="active"
                         });
                     </script>
                     <div class='col-sm-2'>
-                        {!! Form::label('start_time', 'End Date:' ,['class' => 'lead']) !!}
+                        {!! Form::label('start_time', Lang::get('lang.end_date') ,['class' => 'lead']) !!}
                         {!! Form::text('end_date',null,['class'=>'form-control','id'=>'datetimepicker3'])!!}
                     </div>
                     <script type="text/javascript">
@@ -165,7 +168,7 @@ class="active"
                         });
                     </script>
                     <div class='col-sm-1'>
-                        {!! Form::label('filter', 'Filter:',['class' => 'lead']) !!}<br>
+                        {!! Form::label('filter', Lang::get('lang.filter'),['class' => 'lead']) !!}<br>
                         <input type="submit" class="btn btn-primary">
                     </div>
                 </div>
@@ -175,17 +178,29 @@ class="active"
                         <label class="lead">{!! Lang::get('lang.Legend') !!}:</label>
                     </div>
                     <style>
-                        #legend-holder { border: 1px solid #ccc; float: left; width: 25px; height: 25px; margin: 1px; }
+                        #legend-holder {
+                            border: 1px solid #ccc;
+                            float: left;
+                            width: 25px;
+                            height: 25px;
+                            margin: 1px;
+                        }
                     </style>
-                    <div class="col-md-3"><span id="legend-holder" style="background-color: #6C96DF;"></span>&nbsp; <span class="lead"> <span id="total-created-tickets" ></span> {!! Lang::get('lang.tickets') !!} {!! Lang::get('lang.created') !!}</span></div> 
-                    <div class="col-md-3"><span id="legend-holder" style="background-color: #6DC5B2;"></span>&nbsp; <span class="lead"> <span id="total-reopen-tickets" class="lead"></span> {!! Lang::get('lang.tickets') !!} {!! Lang::get('lang.reopen') !!}</span></div> 
-                    <div class="col-md-3"><span id="legend-holder" style="background-color: #E3B870;"></span>&nbsp; <span class="lead"> <span id="total-closed-tickets" class="lead"></span> {!! Lang::get('lang.tickets') !!} {!! Lang::get('lang.closed') !!}</span></div> 
+                    <div class="col-md-3"><span id="legend-holder" style="background-color: #6C96DF;"></span>&nbsp;
+                        <span class="lead"> <span id="total-created-tickets"></span> {!! Lang::get('lang.tickets') !!}
+                            {!! Lang::get('lang.created') !!}</span></div>
+                    <div class="col-md-3"><span id="legend-holder" style="background-color: #6DC5B2;"></span>&nbsp;
+                        <span class="lead"> <span id="total-reopen-tickets" class="lead"></span> {!!
+                            Lang::get('lang.tickets') !!} {!! Lang::get('lang.reopen') !!}</span></div>
+                    <div class="col-md-3"><span id="legend-holder" style="background-color: #E3B870;"></span>&nbsp;
+                        <span class="lead"> <span id="total-closed-tickets" class="lead"></span> {!!
+                            Lang::get('lang.tickets') !!} {!! Lang::get('lang.closed') !!}</span></div>
                 </div>
             </div>
         </form>
         <!--<div id="legendDiv"></div>-->
         <div class="chart">
-            <canvas class="chart-data" id="tickets-graph" width="1000" height="250"></canvas>   
+            <canvas class="chart-data" id="tickets-graph" width="1000" height="250"></canvas>
         </div>
     </div><!-- /.box-body -->
 </div><!-- /.box -->
@@ -203,11 +218,11 @@ class="active"
             $statuses = $flattened->keys();
             ?>
             <tr>
-                <th>Department</th>
+                <th>{!! Lang::get('lang.department') !!}</th>
                 @forelse($statuses as $status)
-                 <th>{!! $status !!}</th>
-                @empty 
-                
+                <th>{!! $status !!}</th>
+                @empty
+
                 @endforelse
 
             </tr>
@@ -216,24 +231,24 @@ class="active"
                 <td>{!! $name !!}</td>
                 @forelse($statuses as $status)
                 @if($dept->get($status))
-                 <th>{!! $dept->get($status)->count !!}</th>
-                @else 
-                    <th></th>
-                 @endif
-                @empty 
-                
+                <th>{!! $dept->get($status)->count !!}</th>
+                @else
+                <th></th>
+                @endif
+                @empty
+
                 @endforelse
             </tr>
-            @endforeach 
+            @endforeach
         </table>
     </div>
 </div>
-<div id="refresh"> 
+<div id="refresh">
     <script src="{{asset("lb-faveo/plugins/chartjs/Chart.min.js")}}" type="text/javascript"></script>
 </div>
 <script src="{{asset("lb-faveo/plugins/chartjs/Chart.min.js")}}" type="text/javascript"></script>
 <script type="text/javascript">
-                        $(document).ready(function () {
+    $(document).ready(function () {
                             $.getJSON("agen", function (result) {
                                 var labels = [], open = [], closed = [], reopened = [], open_total = 0, closed_total = 0, reopened_total = 0;
                                 //,data2=[],data3=[],data4=[];

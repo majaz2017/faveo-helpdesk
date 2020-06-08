@@ -40,7 +40,7 @@ class="active"
             <i class="fa fa-ban"></i>
             <b>Alert!</b>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <br/>
+            <br />
             @if($errors->first('status'))
             <li class="error-message-padding">{!! $errors->first('status', ':message') !!}</li>
             @endif
@@ -98,21 +98,27 @@ class="active"
             <div class="col-md-6">
                 <div class="form-group {{ $errors->has('parent_topic') ? 'has-error' : '' }}">
                     {!! Form::label('parent_topic',Lang::get('lang.parent_topic')) !!}
-                    {!!Form::select('parent_topic', [''=>Lang::get('lang.select_a_parent_topic'),Lang::get('lang.help_topic')=>$topics->pluck('topic','id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('parent_topic',
+                    [''=>Lang::get('lang.select_a_parent_topic'),Lang::get('lang.help_topic')=>$topics->pluck('topic','id')->toArray()],null,['class'
+                    => 'form-control']) !!}
                 </div>
             </div>
             <!-- Custom Form: Drop down: value from form table -->
             <div class="col-md-6">
                 <div class="form-group {{ $errors->has('custom_form') ? 'has-error' : '' }}">
                     {!! Form::label('custom_form',Lang::get('lang.Custom_form')) !!}
-                    {!!Form::select('custom_form', [''=>Lang::get('lang.select_a_form'),Lang::get('lang.custom_form')=>$forms->pluck('formname','id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('custom_form',
+                    [''=>Lang::get('lang.select_a_form'),Lang::get('lang.custom_form')=>$forms->pluck('formname','id')->toArray()],null,['class'
+                    => 'form-control']) !!}
                 </div>
             </div>
             <!-- Department:	Drop down: value Department form table -->
             <div class="col-md-6">
                 <div class="form-group {{ $errors->has('department') ? 'has-error' : '' }}">
                     {!! Form::label('department',Lang::get('lang.department')) !!}
-                    {!!Form::select('department', [''=>Lang::get('lang.select_a_department'),Lang::get('lang.departments')=>$departments->pluck('name','id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('department',
+                    [''=>Lang::get('lang.select_a_department'),Lang::get('lang.departments')=>$departments->pluck('name','id')->toArray()],null,['class'
+                    => 'form-control']) !!}
                 </div>
             </div>
         </div>
@@ -121,21 +127,41 @@ class="active"
             <div class="col-md-4">
                 <div class="form-group {{ $errors->has('priority') ? 'has-error' : '' }}">
                     {!! Form::label('priority',Lang::get('lang.priority')) !!} <span class="text-red"> *</span>
-                    {!!Form::select('priority', [''=>Lang::get('lang.select_a_priority'),Lang::get('lang.priorities')=>$priority->pluck('priority_desc','priority_id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('priority',
+                    [''=>Lang::get('lang.select_a_priority'),Lang::get('lang.priorities')=>$priority->pluck('priority_desc','priority_id')->toArray()],null,['class'
+                    => 'form-control']) !!}
                 </div>
             </div>
             <!-- SLA Plan:	 Drop down: value SLA Plan  table-->
             <div class="col-md-4">
                 <div class="form-group {{ $errors->has('sla_plan') ? 'has-error' : '' }}">
                     {!! Form::label('sla_plan',Lang::get('lang.SLA_plan')) !!}
-                    {!!Form::select('sla_plan', [''=>Lang::get('lang.select_a_sla_plan'),Lang::get('lang.sla_plans')=>$slas->pluck('name','id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('sla_plan',
+                    [''=>Lang::get('lang.select_a_sla_plan'),Lang::get('lang.sla_plans')=>$slas->pluck('name','id')->toArray()],null,['class'
+                    => 'form-control']) !!}
                 </div>
             </div>
             <!-- Auto-assign To:	Drop Down: value  from Agent table   -->
             <div class="col-md-4">
                 <div class="form-group {{ $errors->has('auto_assign') ? 'has-error' : '' }}">
                     {!! Form::label('auto_assign',Lang::get('lang.auto_assign')) !!}
-                    {!!Form::select('auto_assign', [''=>Lang::get('lang.select_an_agent'),Lang::get('lang.agents')=>$agents->pluck('full_name','id')->toArray()],null,['class' => 'form-control']) !!}
+                    {!!Form::select('auto_assign',
+                    [''=>Lang::get('lang.select_an_agent'),Lang::get('lang.agents')=>$agents->pluck('full_name','id')->toArray()],null,['class'
+                    => 'form-control']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group {{ $errors->has('useGeo') ? 'has-error' : '' }}">
+                    {!! Form::label('useGeoLbl',Lang::get('lang.useGeo')) !!}
+                    @if($useGeo)
+                    {!! Form::radio('useGeo','1',true) !!} {{Lang::get('lang.yes')}}
+                    {!! Form::radio('useGeo','0',false) !!} {{Lang::get('lang.no')}}
+                    @else
+                    {!! Form::radio('useGeo','1',false) !!} {{Lang::get('lang.yes')}}
+                    {!! Form::radio('useGeo','0',true) !!} {{Lang::get('lang.no')}}
+                    @endif
                 </div>
             </div>
         </div>
@@ -153,7 +179,8 @@ class="active"
     </div>
     <div class="box-footer">
         <div class="form-group">
-            <input type="checkbox" name="sys_help_tpoic" @if($sys_help_topic->help_topic == $topics->id) checked disabled @endif> {{ Lang::get('lang.make-default-helptopic')}}
+            <input type="checkbox" name="sys_help_tpoic" @if($sys_help_topic->help_topic == $topics->id) checked
+            disabled @endif> {{ Lang::get('lang.make-default-helptopic')}}
         </div>
         {!! Form::submit(Lang::get('lang.update'),['class'=>'btn btn-primary'])!!}
     </div>
